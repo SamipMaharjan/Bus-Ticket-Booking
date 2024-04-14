@@ -1,0 +1,56 @@
+20231118	12:28:58 	 cc5fc87a-6ad9-4bb7-aa31-789b61d7a088 	 Error: Not allowed by CORS
+20231118	15:01:06 	 1b4a8d96-f2aa-422c-84b9-57af47d3ad0b 	 Error: ENOENT: no such file or directory, stat '/home/samip/Documents/DaveGray_nodeJS/chapter8(routing)/views/test.html'
+20231118	15:01:41 	 caa41d97-d44b-44f7-a813-43a85b23074b 	 Error: ENOENT: no such file or directory, stat '/home/samip/Documents/DaveGray_nodeJS/chapter8(routing)/views/test.html'
+20231118	15:01:43 	 964ae560-7f75-4b07-8e8c-3c1cde7ba8db 	 Error: ENOENT: no such file or directory, stat '/home/samip/Documents/DaveGray_nodeJS/chapter8(routing)/views/test.html'
+20231118	15:01:43 	 32eb0982-ed63-4834-b9c3-70d3884c0ef9 	 Error: ENOENT: no such file or directory, stat '/home/samip/Documents/DaveGray_nodeJS/chapter8(routing)/views/test.html'
+20231118	15:01:43 	 53303476-5cc6-4464-ba05-1cdc12b5f496 	 Error: ENOENT: no such file or directory, stat '/home/samip/Documents/DaveGray_nodeJS/chapter8(routing)/views/test.html'
+20231118	15:01:43 	 9c04833a-58c5-492b-8e9d-e9f5d3a40d18 	 Error: ENOENT: no such file or directory, stat '/home/samip/Documents/DaveGray_nodeJS/chapter8(routing)/views/test.html'
+20231118	15:01:44 	 bbdb2d46-9f3c-407b-b0d9-ad6c1eb3a5d9 	 Error: ENOENT: no such file or directory, stat '/home/samip/Documents/DaveGray_nodeJS/chapter8(routing)/views/test.html'
+20231118	15:52:04 	 83d37710-5ab9-4bfc-8ccf-de7ea4f7814b 	 TypeError: Cannot read properties of undefined (reading 'firstname')
+20231118	15:52:18 	 f41e651e-6911-43c3-bd7b-e92ec93f2766 	 TypeError: Cannot read properties of undefined (reading 'firstname')
+20231118	15:52:39 	 ed078d55-ce40-4fca-8911-79ae6e29871d 	 SyntaxError: Expected ',' or '}' after property value in JSON at position 8
+20231118	15:52:52 	 92bbba7c-5ced-44cf-ad98-d54ac28a176c 	 TypeError: Cannot read properties of undefined (reading 'firstname')
+20231118	15:53:03 	 91478284-d026-43bf-a871-0b9b3335b7b8 	 TypeError: Cannot read properties of undefined (reading 'firstname')
+20231118	15:53:38 	 f1b720c7-2002-4a9d-be44-28188bf1f3da 	 TypeError: Cannot read properties of undefined (reading 'firstname')
+20231118	15:54:23 	 1f3a7de7-8a46-4531-bd15-3647bc77c9e8 	 TypeError: Cannot read properties of undefined (reading 'id')
+20231118	15:54:47 	 e5b09978-aa44-4a8b-88ec-8a2429353f4b 	 TypeError: Cannot read properties of undefined (reading 'id')
+20231118	15:54:55 	 2ef7642d-7f9f-419a-aba2-70ec643ed83a 	 TypeError: Cannot read properties of undefined (reading 'id')
+20231118	15:56:09 	 b257587e-9189-4a3c-b16d-786e5fd8abca 	 TypeError: Cannot read properties of undefined (reading 'id')
+20231118	15:58:49 	 bbcae95a-65b8-4a1a-a6b2-ec4f7a701145 	 TypeError: Cannot read properties of undefined (reading 'id')
+20231118	15:59:35 	 d98ba410-4eb2-41aa-bbbe-70a9f848dee6 	 TypeError: Cannot read properties of undefined (reading 'id')
+20231118	16:03:14 	 4ed7ea6c-1188-4742-adcd-98784fdf6fdf 	 TypeError: res.json is not a function
+20231118	16:03:50 	 c1605ecb-6464-488b-abeb-5f5232a4ae8a 	 TypeError: res.json is not a function
+20231118	16:03:56 	 adcc3e39-2503-406b-807e-39f4d6428374 	 TypeError: res.json is not a function
+20231118	16:04:26 	 1d37908f-7f52-4003-a7cf-cf4e5bb68999 	 TypeError: res.json is not a function
+20231118	17:06:06 	 b223806c-ada5-415b-9fcf-13968a0b258d 	 ReferenceError: data is not defined
+20240318	19:44:16 	 3a468450-669f-4e79-b3ba-987c0996b2ca 	 Error: Not allowed by CORS
+20240324	18:37:50 	 cbe911c4-09b3-47f1-a2a4-aa62e9dd8945 	 TypeError: Cannot read properties of undefined (reading 'firstname')
+20240324	18:38:30 	 1815f69e-807b-4039-9111-891f59008600 	 TypeError: Cannot read properties of undefined (reading 'firstname')
+20240326	09:30:30 	 7696eeb4-59aa-4b75-bec3-9aabae9c388c 	 TypeError: Cannot read properties of undefined (reading 'startsWith')
+20240327	11:21:33 	 c4a7644a-045c-4878-a816-dc074eea9e08 	 SyntaxError: Expected ',' or '}' after property value in JSON at position 58
+20240327	11:21:39 	 5a908133-7582-4105-b541-c117e6e4c60e 	 SyntaxError: Expected double-quoted property name in JSON at position 73
+20240328	14:09:40 	 857cbeab-25f1-406b-8706-8d6ceb448cc7 	 TypeError: Cannot read properties of undefined (reading 'startsWith')
+20240328	14:09:54 	 5953216b-d7d8-4a25-90b1-c6a82844ce02 	 TypeError: Cannot read properties of undefined (reading 'startsWith')
+20240328	14:10:04 	 b7a07344-6f9d-4af7-82fe-84225445c16c 	 TypeError: Cannot read properties of undefined (reading 'startsWith')
+20240401	10:04:04 	 a9ef8fb4-d1fe-4235-ae2a-7a2811bd00d9 	 TypeError: Cannot read properties of undefined (reading 'startsWith')
+20240401	10:05:40 	 6897dc10-085a-4ff3-a77f-2660a921582d 	 TypeError: Cannot read properties of undefined (reading 'startsWith')
+20240401	10:07:18 	 b1bc0ce2-b67e-491f-b642-35ce886b5dab 	 TypeError: Cannot read properties of undefined (reading 'startsWith')
+20240401	10:38:28 	 74f85f3d-4a24-4bac-956a-2e17c1c30100 	 TypeError: Cannot read properties of undefined (reading 'startsWith')
+20240401	10:40:32 	 07ab6995-c30c-4a0e-ac70-afa5180b0894 	 TypeError: Cannot read properties of undefined (reading 'startsWith')
+20240401	10:41:13 	 9faab2bf-f60f-4a9c-8db8-d4d76af6c147 	 TypeError: Cannot read properties of undefined (reading 'startsWith')
+20240401	10:41:35 	 5d649bd2-2a9b-48ee-a104-78c832cc2ba7 	 TypeError: Cannot read properties of undefined (reading 'startsWith')
+20240401	10:42:13 	 3b65cd07-314b-4cc0-a342-fcaccf83aa28 	 TypeError: Cannot read properties of undefined (reading 'startsWith')
+20240401	10:44:34 	 26bb68b2-2035-44f0-8326-9e0675d0578b 	 TypeError: Cannot read properties of undefined (reading 'startsWith')
+20240406	15:29:39 	 bce613ac-9f51-404f-8a6e-5714b6b69d8b 	 TypeError: Cannot read properties of undefined (reading 'startsWith')
+20240408	15:40:35 	 ae056dfd-ecdf-43b9-9413-53babb38876c 	 TypeError: Cannot read properties of undefined (reading 'startsWith')
+20240408	18:53:25 	 5b026a7d-03b9-460c-ac3f-f2838dd79d98 	 TypeError: Cannot read properties of undefined (reading 'startsWith')
+20240408	18:53:33 	 844e22c2-f1b0-41da-86c7-1bf8f58f1921 	 TypeError: Cannot read properties of undefined (reading 'startsWith')
+20240408	18:53:38 	 2150268d-fe9d-4b59-abfa-eb4722f809d3 	 TypeError: Cannot read properties of undefined (reading 'startsWith')
+20240408	19:39:21 	 046f99d2-3c23-481e-92e4-f7cae5d64cdd 	 TypeError: Cannot read properties of undefined (reading 'startsWith')
+20240408	19:48:45 	 c5e0550a-52d1-453d-a026-eabc143db457 	 TypeError: Cannot read properties of undefined (reading 'startsWith')
+20240408	20:42:22 	 4c3eb192-5b40-484e-80ee-dfc8e6c95afe 	 TypeError: Cannot read properties of undefined (reading 'startsWith')
+20240412	18:45:41 	 eaf6b557-b9ea-4f91-94de-604db615982d 	 TypeError: Cannot read properties of undefined (reading 'startsWith')
+20240412	18:47:25 	 4c19a6f9-8367-42ae-bc65-8daf44d82c37 	 TypeError: Cannot read properties of undefined (reading 'startsWith')
+20240412	19:35:24 	 ef84d2ff-abb6-4990-849f-26f11f71cf39 	 SyntaxError: Unexpected token  in JSON at position 83
+20240412	21:06:35 	 2cb25762-1a7b-46a1-9431-82e1649ff7f8 	 TypeError: Cannot read properties of undefined (reading 'startsWith')
+20240412	21:06:40 	 9463f36e-96a0-4b4f-9c0b-b6f1f2a9c524 	 TypeError: Cannot read properties of undefined (reading 'startsWith')

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header with Logos and Profile</title>
+    <link rel="stylesheet" href="searchbus.css">
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="logo"></div>
+        <a href="/Home/nav.html" class="nav-item">Home</a>
+        <a href="/contact/contact.html" class="nav-item">Contacts</a>
+        <div class="profile"></div>
+    </div>
+    <div class="container">
+        <h1>Reservation</h1>
+        <form id="reservation-form">
+            <div class="input-group">
+                <div class="input-field">
+                    <label for="from">From</label>
+                    <input type="text" id="from" placeholder="Enter Starting Location">
+                </div>
+                <div class="input-field">
+                    <label for="to">To</label>
+                    <input type="text" id="to" placeholder="Enter Ending Location">
+                </div>
+                <div class="input-field">
+                    <label for="date">Date</label>
+                    <input type="date" id="date">
+                </div>
+                <button type="submit">Search</button>
+            </div>
+        </form>
+    </div>
+    <div class="container">
+        <h1>Bus Tickets</h1>
+        <div class="filters">
+            <span>Live Tracking (3)</span>
+            <select class="option">
+                <option value="departure">Departure</option>
+                <option value="duration">Duration</option>
+                <option value="arrival">Arrival</option>
+                <option value="ratings">Ratings</option>
+                <option value="fare">Fare</option>
+            </select>
+            <button>Filter</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Departure</th>
+                    <th>Duration</th>
+                    <th>Arrival</th>
+                    <th>Ratings</th>
+                    <th>Fare (INR)</th>
+                    <th>Seats Available</th>
+                    <th>View Seats</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>15:00</td>
+                    <td>35h 00m</td>
+                    <td>02:00</td>
+                    <td>★3.0</td>
+                    <td>INR 3500</td>
+                    <td>20 Seats available</td>
+                    <td><button>6 Single</button></td>
+                </tr>
+                <tr>
+                    <td>16:00</td>
+                    <td>31h 30m</td>
+                    <td>23:30</td>
+                    <td>★3.2</td>
+                    <td>INR 3000</td>
+                    <td>38 Seats available</td>
+                    <td><button>Single Seats (4)</button></td>
+                </tr>
+                <tr>
+                    <td>16:15</td>
+                    <td>30h 15m</td>
+                    <td>22:30</td>
+                    <td>★1.3</td>
+                    <td>INR 3000<span class="strikethrough">2700</span></td>
+                    <td>-</td>
+                    <td><button>-</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="footer">
+        <div class="footer-logo">
+            <img src="/Photo/logo.png" alt="Bus Logo">
+        </div>
+        <div class="footer-content">
+            <div class="footer-section address">
+                <p>44600, Kathmandu, Nepal</p>
+            </div>
+            <div class="footer-section">
+                <p>&copy; 2024 Bus Yatri. All rights reserved.</p>
+            </div>
+            <div class="footer-section links">
+                <a href="#" class="footer-link">Register as Driver</a>
+                <a href="#" class="footer-link">Want to become a member?</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
