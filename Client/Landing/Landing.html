@@ -6,24 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Header with Logos and Profile</title>
     <link rel="stylesheet" href="home.css">
+    <script src="landing.js" defer></script>
+    <script src="globals.js" defer></script>
 
 </head>
 
 <body>
-    <script src="./script.js"></script>
+    <script src="/Login/script.js"></script>
     <div class="landing">
         <form id="Home">
             <div class="header">
-                <div class="logo"></div>
-                <a href="#home" class="nav-item">Home</a>
-                <a href="#buses" class="nav-item">Booking-Buses</a>
+                <div class="logo1">
+                    <img src="/Photo/logo.png" alt="Logo">
+                </div>
+                <a href="/SearchBus/searchbus.html" class="nav-item">Booking-Buses</a>
                 <a href="#contacts" class="nav-item">Contacts</a>
-                <a href="Login.html" class="signin">
-                    <button type="button" id="SignIn">Sign in</button>
-                </a>
-                <a href="index.html" class="signup">
-                    <button type="button">Sign up</button>
-                </a>
+                <div class="Button1" id="AuthBtns">
+                    <a href="/Login/Login.html" class="signin">
+                        <button type="button" id="SignIn">Sign in</button>
+                    </a>
+                    <a href="/Login/index.html" class="signup">
+                        <button type="button" id="SignUp">Sign up</button>
+                    </a>
+                </div>
+                <div id="profileInformation" class="profileInformation">
+                    <div class="profile" id="profile"><img style="height: 100%;" src="/Photo/profile.png" alt=""></div>
+                    <p>Username</p>
+                </div>  
             </div>
             <div class="container">
                 <h1>Reservation</h1>
@@ -41,37 +50,38 @@
                             <label for="date">Date</label>
                             <input type="date" id="date">
                         </div>
-                        <button type="submit">Reserve Now</button>
+                      c  <a href="/SearchBus/searchbus.html" type="submit">Reserve Now</a>
                     </div>
                 </form>
             </div>
         </form>
         <div class="location">
             <div class="card">
-                <img src="one.jpg">
+                <img src="/Photo/one.jpg">
                 <div class="card-contant">
                     <h3>Kathmandu</h3>
                     <p>Kathmandu, officially known as Kathmandu Metropolitan City, is the capital and most populous city of Nepal. It is located in the Kathmandu Valley, a large valley in the high plateaus of central Nepal, at an altitude of 1,400 meters
                         (4,600 feet).
                     </p>
-                    <a href="" class="btn">Book now</a>
+                    <a href="/SearchBus/searchbus.html" class="btn">Book now</a>
                 </div>
             </div>
             <div class="card">
-                <img src="two.jpg">
+                <img src="/Photo/two.jpg">
                 <div class="card-contant">
                     <h3>pokhara</h3>
                     <p>Pokhara, the “Tourist Capital of Nepal,” is the second-largest city in this Himalayan country, after Kathmandu. It serves as the capital of Gandaki Province and is renowned for its stunning natural beauty and adventure opportunities.</p>
-                    <a href="" class="btn">Book now</a>
+                    <a href="/SearchBus/searchbus.html" class="btn">Book now</a>
+
                 </div>
             </div>
             <div class="card">
-                <img src="three.jpg">
+                <img src="/Photo/three.jpg">
                 <div class="card-contant">
                     <h3>Lumbini</h3>
                     <p>Lumbini, is a Buddhist pilgrimage site located in the Rupandehi District of Lumbini Province in Nepal. According to Buddhist tradition, it is the birthplace of Siddhartha Gautama, who later became Shakyamuni Buddha and founded Buddhism.
                     </p>
-                    <a href="" class="btn">Book now</a>
+                    <a href="/SearchBus/searchbus.html" class="btn">Book now</a>
                 </div>
             </div>
         </div>
@@ -99,7 +109,7 @@
 
         <div class="footer">
             <div class="footer-logo">
-                <img src="bus_logonew.png" alt="Bus Logo">
+                <img src="/Photo/logo.png" alt="Bus Logo">
             </div>
             <div class="footer-content">
                 <div class="footer-section address">

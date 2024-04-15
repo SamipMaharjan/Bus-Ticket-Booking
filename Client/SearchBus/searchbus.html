@@ -6,17 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Header with Logos and Profile</title>
     <link rel="stylesheet" href="searchbus.css">
+    <script src="./searchBus.js" defer></script>
 </head>
 
 <body>
 
     <div class="header">
         <div class="logo"></div>
-        <a href="/Home/nav.html" class="nav-item">Home</a>
+        <a href="/Landing/Landing.html" class="nav-item">Home</a>
         <a href="/contact/contact.html" class="nav-item">Contacts</a>
         <div class="profile"></div>
     </div>
-    <div class="container">
+    <div class="container2">
         <h1>Reservation</h1>
         <form id="reservation-form">
             <div class="input-group">
@@ -49,46 +50,46 @@
             </select>
             <button>Filter</button>
         </div>
-        <table>
+        <table id="upcommingTripsTable">
             <thead>
                 <tr>
-                    <th>Departure</th>
-                    <th>Duration</th>
-                    <th>Arrival</th>
+                    <th>Departure Time</th>
+                    <th>Destination</th>
+                    <th>Pick-up Point</th>
                     <th>Ratings</th>
-                    <th>Fare (INR)</th>
+                    <th>Fare (NRS)</th>
                     <th>Seats Available</th>
-                    <th>View Seats</th>
+                    <th> </th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <!-- <tr>
                     <td>15:00</td>
                     <td>35h 00m</td>
                     <td>02:00</td>
                     <td>★3.0</td>
-                    <td>INR 3500</td>
+                    <td>NRS 3500</td>
                     <td>20 Seats available</td>
-                    <td><button>6 Single</button></td>
+                    <td><button> Book </button></td>
                 </tr>
                 <tr>
                     <td>16:00</td>
                     <td>31h 30m</td>
                     <td>23:30</td>
                     <td>★3.2</td>
-                    <td>INR 3000</td>
+                    <td>NRS 3000</td>
                     <td>38 Seats available</td>
-                    <td><button>Single Seats (4)</button></td>
+                    <td><button>Book</button></td>
                 </tr>
                 <tr>
                     <td>16:15</td>
                     <td>30h 15m</td>
                     <td>22:30</td>
                     <td>★1.3</td>
-                    <td>INR 3000<span class="strikethrough">2700</span></td>
-                    <td>-</td>
-                    <td><button>-</button></td>
-                </tr>
+                    <td>NRS 3000<span class="strikethrough">2700</span></td>
+                    <td>10 seats available</td>
+                    <td><button>Book</button></td>
+                </tr> -->
             </tbody>
         </table>
     </div>
