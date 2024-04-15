@@ -54,3 +54,7 @@
 20240412	19:35:24 	 ef84d2ff-abb6-4990-849f-26f11f71cf39 	 SyntaxError: Unexpected token  in JSON at position 83
 20240412	21:06:35 	 2cb25762-1a7b-46a1-9431-82e1649ff7f8 	 TypeError: Cannot read properties of undefined (reading 'startsWith')
 20240412	21:06:40 	 9463f36e-96a0-4b4f-9c0b-b6f1f2a9c524 	 TypeError: Cannot read properties of undefined (reading 'startsWith')
+20240415	09:42:26 	 dda72606-b29f-4af5-9ad8-1aa7d1b85161 	 Error: Not allowed by CORS
+20240415	09:45:08 	 a86fc30e-097d-46b6-9776-9f1c14d77547 	 TypeError: Cannot read properties of undefined (reading 'startsWith')
+20240415	09:45:23 	 39c04f1f-c80b-472a-8dfb-0dcee2f0e0ad 	 TypeError: Cannot read properties of undefined (reading 'startsWith')
+20240415	09:45:23 	 7a904bd3-681b-415d-8625-d3c98914f712 	 TypeError: Cannot read properties of undefined (reading 'startsWith')
