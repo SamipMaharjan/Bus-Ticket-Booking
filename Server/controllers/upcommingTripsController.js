@@ -4,10 +4,11 @@ const { StatusCodes } = require("http-status-codes");
 const Company = require("../model/Company");
 const User = require("../model/User");
 const mongoose = require("mongoose");
+const { verifyJWT } = require("../middleware/verifyJWT");
 
 const handleCreateUpcommingTrip = async (req, res) => {
   try {
-    const { companyId, driverId, pickUpPoint, destination, departureTime } = req.body;
+    const { companyId, driverId, pickUpPoint, destination, departureTime, price } = req.body;
     const companyExists = await Company.findById(companyId).exec();
     // console.log("company exists",companyExists);
     if (!companyExists) {
@@ -83,6 +84,7 @@ const handleGetAllUpcommingTrips = async (req, res) => {
 
 const deleteTrip = async (req, res) => {
   // console.log(req.body.id);
+  // verifyJWT()
   try{
     const tripId = req.body.id;
     const result = await UpcommingTrips.findOneAndDelete({ _id: tripId });
@@ -99,6 +101,40 @@ const deleteTrip = async (req, res) => {
 };
 
 const addImage = async (req, res) => {
-  
+  try {
+    const upcommingTripId = req.body.id;
+    console.log(req.body);
+    const image = req.body.image;
+    const result = await UpcommingTrips.findByIdAndUpdate(
+      { _id: upcommingTripId },
+      { $push: { image: image } }, // Append newValue to the arrayField
+      { new: true } // Options: return the modified document
+    );
+    // find({_id: busId}).exec();
+    // console.log("company bus", result);
+    res.status(200).json(result);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: err.message });
+  }
 }
-module.exports = { handleCreateUpcommingTrip, handleGetAllUpcommingTrips, deleteTrip };
+
+const addPrice = async (req, res) => {
+  try {
+    const upcommingTripId = req.body.id;
+    // console.log(req.body);
+    const image = req.body.image;
+    const result = await UpcommingTrips.findByIdAndUpdate(
+      { _id: upcommingTripId },
+      { $push: { Image: image } }, // Append newValue to the arrayField
+      { new: true } // Options: return the modified document
+    );
+    // find({_id: busId}).exec();
+    // console.log("company bus", result);
+    res.status(200).json(result);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: err.message });
+  }
+}
+module.exports = { handleCreateUpcommingTrip, handleGetAllUpcommingTrips, deleteTrip, addImage, addPrice };

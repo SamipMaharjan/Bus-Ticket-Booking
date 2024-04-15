@@ -30,7 +30,7 @@ const handleNewUser = async (req, res) => {
         roles,
       });
       console.log("result", result);
-      res.status(201).json({ success: `New user ${username} created ` });
+      res.status(201).json({ success: true, message: `New user ${username} created ` });
     } else if (roleValues.includes(allRoles.Driver)) {
       console.log("comid --------------------", companyId);
       handleNewDriver(req, res);
@@ -40,7 +40,7 @@ const handleNewUser = async (req, res) => {
         .json({ error: "Company ID missing for driver from here." });
     }
   } catch (err) {
-    return res.status(500).json({ message: err.message });
+    return res.status(500).json({ success: false, message: err.message });
   }
 };
 

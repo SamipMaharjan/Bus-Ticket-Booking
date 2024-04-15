@@ -50,10 +50,10 @@ const handleLogin = async (req, res) => {
     //   sameSite: "None",
     //   secure: true,
     // });
-    res.status(200).json({ token: accessToken });
+    res.status(200).json({success: true, token: accessToken });
   } else {
     // console.log("lastres");
-    res.sendStatus(401);
+    res.sendStatus({ success: false, message: 401} );
   }
 };
 
