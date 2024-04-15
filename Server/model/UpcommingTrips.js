@@ -25,6 +25,8 @@ const upcommingTripsSchema = new Schema({
   banner: String,
   passengerIds: [String],
   Status: String,
+  Price: Number,
+  Image: String
 });
 
 // const upcommingTripsSchema = new Schema({

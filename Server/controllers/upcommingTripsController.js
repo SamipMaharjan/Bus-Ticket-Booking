@@ -97,4 +97,8 @@ const deleteTrip = async (req, res) => {
     return res.status(500).json({ success: false, message: "Internal Server Error"})
   }
 };
+
+const addImage = async (req, res) => {
+  
+}
 module.exports = { handleCreateUpcommingTrip, handleGetAllUpcommingTrips, deleteTrip };
