@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Header with Logos and Profile</title>
     <link rel="stylesheet" href="home.css">
+    <script src="landing.js" defer></script>
+    <script src="globals.js" defer></script>
+
 </head>
 
 <body>
@@ -16,9 +19,9 @@
                 <div class="logo1">
                     <img src="/Photo/logo.png" alt="Logo">
                 </div>
-                <a href="#buses" class="nav-item">Booking-Buses</a>
+                <a href="/SearchBus/searchbus.html" class="nav-item">Booking-Buses</a>
                 <a href="#contacts" class="nav-item">Contacts</a>
-                <div class="Button1">
+                <div class="Button1" id="AuthBtns">
                     <a href="/Login/Login.html" class="signin">
                         <button type="button" id="SignIn">Sign in</button>
                     </a>
@@ -26,6 +29,10 @@
                         <button type="button" id="SignUp">Sign up</button>
                     </a>
                 </div>
+                <div id="profileInformation" class="profileInformation">
+                    <div class="profile" id="profile"><img style="height: 100%;" src="/Photo/profile.png" alt=""></div>
+                    <p>Username</p>
+                </div>  
             </div>
             <div class="container">
                 <h1>Reservation</h1>
@@ -43,7 +50,7 @@
                             <label for="date">Date</label>
                             <input type="date" id="date">
                         </div>
-                        <button type="submit">Reserve Now</button>
+                      c  <a href="/SearchBus/searchbus.html" type="submit">Reserve Now</a>
                     </div>
                 </form>
             </div>
@@ -56,7 +63,7 @@
                     <p>Kathmandu, officially known as Kathmandu Metropolitan City, is the capital and most populous city of Nepal. It is located in the Kathmandu Valley, a large valley in the high plateaus of central Nepal, at an altitude of 1,400 meters
                         (4,600 feet).
                     </p>
-                    <a href="" class="btn">Book now</a>
+                    <a href="/SearchBus/searchbus.html" class="btn">Book now</a>
                 </div>
             </div>
             <div class="card">
@@ -64,7 +71,8 @@
                 <div class="card-contant">
                     <h3>pokhara</h3>
                     <p>Pokhara, the “Tourist Capital of Nepal,” is the second-largest city in this Himalayan country, after Kathmandu. It serves as the capital of Gandaki Province and is renowned for its stunning natural beauty and adventure opportunities.</p>
-                    <a href="" class="btn">Book now</a>
+                    <a href="/SearchBus/searchbus.html" class="btn">Book now</a>
+
                 </div>
             </div>
             <div class="card">
@@ -73,7 +81,7 @@
                     <h3>Lumbini</h3>
                     <p>Lumbini, is a Buddhist pilgrimage site located in the Rupandehi District of Lumbini Province in Nepal. According to Buddhist tradition, it is the birthplace of Siddhartha Gautama, who later became Shakyamuni Buddha and founded Buddhism.
                     </p>
-                    <a href="" class="btn">Book now</a>
+                    <a href="/SearchBus/searchbus.html" class="btn">Book now</a>
                 </div>
             </div>
         </div>

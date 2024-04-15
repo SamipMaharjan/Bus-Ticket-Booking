@@ -1,7 +1,7 @@
 const setCookie = (name, value, days) => {
   const expires = new Date(Date.now() + days * 864e5).toUTCString();
   document.cookie =
-    name + "=" + encodeURIComponent(value) + "; expires=" + expires;
+    name + "=" + encodeURIComponent(value) + "; path=/; expires=" + expires;
 };
 
 // import { BaseUrl } from "../constants";
@@ -53,7 +53,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   loginForm.addEventListener("submit", (event) => {
     event.preventDefault(); // Prevent default form submission
-    console.log("setCookie", setCookie);
     try {
       const form = document.getElementById("loginForm");
       const formData = new FormData(form);
