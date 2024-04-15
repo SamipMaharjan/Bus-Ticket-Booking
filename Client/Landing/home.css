@@ -84,7 +84,7 @@ body {
 }
 
 .logo {
-    background-image: url('bus_logonew.png');
+    background-image: url('/Photo/logo.png');
     height: 100px;
     width: 200px;
     background-size: contain;
