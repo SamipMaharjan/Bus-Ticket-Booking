@@ -8,19 +8,20 @@ const {
   addUpcommingTrip, 
   handleGetOwnUpcommingTrip
 } = require("../../controllers/companyController");
-
+const verifyRoles = require("../../middleware/verifyRoles");
+const ROLES_LIST = require("../../config/roles_list");
 router
   .route("/")
   .get(handleGetAllCompanies)
-  .delete(deleteCompany); 
+  .delete(verifyRoles(ROLES_LIST.Admin, ROLES_LIST.Company),deleteCompany); 
 
 router
   .route("/bus")
   .get(handleGetOwnBus)
-  .post(addBus);
+  .post(verifyRoles(ROLES_LIST.Admin, ROLES_LIST.Company),addBus);
 router
   .route("/upcommingTrips")
   .get(handleGetOwnUpcommingTrip)
-  .post(addUpcommingTrip);
+  .post(verifyRoles(ROLES_LIST.Admin, ROLES_LIST.Company),addUpcommingTrip);
 
 module.exports = router;
