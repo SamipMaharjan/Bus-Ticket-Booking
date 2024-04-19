@@ -26,6 +26,7 @@ app.use(
       "http://www.yoursite.com",
       "http://127.0.0.1:5500",
       "http://127.0.0.1:5501",
+      "http://127.0.0.1:5502",
       "http://localhost:3501",
       "https://www.google.com",
       "http://localhost:5174",
@@ -59,7 +60,7 @@ app.use(require("./routes/api/users"));
 app.use(require("./routes/api/bus"));
 
 app.use(require("./routes/api/admin"));
-app.use(verifyRoles);
+// app.use(verifyRoles);
 app.use(verifyJWT);
 app.use("/employees", require("./routes/api/employees"));
 

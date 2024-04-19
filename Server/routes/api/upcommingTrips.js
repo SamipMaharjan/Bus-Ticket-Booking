@@ -10,8 +10,8 @@ const ROLES_LIST = require("../../config/roles_list");
 
 router
   .route("/upcommingTrip")
-  .post(verifyRoles(ROLES_LIST.Admin),handleCreateUpcommingTrip)
-  .get(verifyJWT,handleGetAllUpcommingTrips)
-  .delete(verifyRoles(ROLES_LIST.Admin),deleteTrip)
+  .post(handleCreateUpcommingTrip)
+  .get(handleGetAllUpcommingTrips)
+  .delete(deleteTrip);
   
 module.exports = router;
