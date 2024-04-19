@@ -217,7 +217,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                               fill="white"
                             />
                           </svg>
-                          Courses
+                          Upcomming Trips
                           <svg
                             className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current ${
                               open && "rotate-180"
@@ -251,7 +251,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                                   (isActive && "!text-white")
                                 }
                               >
-                                Create Course
+                                Create Upcomming Trips
                               </NavLink>
                             </li>
 
@@ -263,7 +263,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                                   (isActive && "!text-white")
                                 }
                               >
-                                View Course
+                                View Upcomming Trips
                               </NavLink>
                             </li>
                           </ul>

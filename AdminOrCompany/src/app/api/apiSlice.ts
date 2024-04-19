@@ -27,4 +27,4 @@ export const apiSlice = createApi({
   tagTypes: ["Courses", "Teachers", "Students"],
 });
 
-export const baseUrl = "http://localhost:3501/";
+export const baseUrl = "http://localhost:3501";

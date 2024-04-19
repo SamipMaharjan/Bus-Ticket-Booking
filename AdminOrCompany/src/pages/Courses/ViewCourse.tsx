@@ -10,8 +10,8 @@ import toast from "react-hot-toast";
 import { PiBooksFill } from "react-icons/pi";
 
 export default function ViewCourse() {
-  const { data: courseData } = useGetAllCoursesQuery(null);
-  console.log("courseData", courseData);
+  const { data: upcommingTrips } = useGetAllCoursesQuery(null);
+  console.log("upcommingTrips", upcommingTrips);
   const [deleteCourse, { isLoading: isCourseDelete }] =
     useDeleteCourseMutation();
 
@@ -65,48 +65,48 @@ export default function ViewCourse() {
               </h5>
             </div>
           </div>
-          {courseData?.allCourse.map((course) => (
+          {upcommingTrips?.map((trip) => (
             <div
-              key={course._id}
+              key={trip._id}
               className="grid grid-cols-3 border-b border-stroke dark:border-strokedark sm:grid-cols-5"
             >
               <div className="flex items-center gap-3 p-2.5 xl:p-5">
                 <p className="hidden text-black dark:text-white sm:block">
-                  {course.courseName}
+                  {trip.destination}
                 </p>
               </div>
 
               <div className="flex items-center justify-center p-2.5 xl:p-5">
-                <p className="text-black dark:text-white">
-                  {course.enrollments}
-                </p>
+                <p className="text-black dark:text-white">{trip.pickUpPoint}</p>
               </div>
 
               <div className="flex items-center justify-center p-2.5 xl:p-5">
-                <p className="text-meta-3">Rs. {course.price}</p>
+                <p className="text-meta-3">Rs. {trip?.price}</p>
               </div>
 
               <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
-                <p className="text-black dark:text-white">{course.category}</p>
+                <p className="text-black dark:text-white">
+                  {trip.departureTime}
+                </p>
               </div>
 
               <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5 gap-2">
                 <Link
-                  to={`/course-edit/${course._id}`}
+                  to={`/course-edit/${trip._id}`}
                   className="h-10 w-10  bg-meta-5 text-white flex justify-center items-center"
                 >
                   <FaPen />
                 </Link>
                 <Link
-                  to={`/course-content/${course._id}`}
+                  to={`/course-content/${trip._id}`}
                   className="h-10 w-10 text-2xl  bg-meta-5 text-white flex justify-center items-center"
                 >
                   <PiBooksFill />
                 </Link>
                 <button
-                  onClick={() => handleDelete(course._id)}
+                  onClick={() => handleDelete(trip._id)}
                   className="h-10 w-10 bg-red-600 text-white flex justify-center items-center text-lg"
-                  value={course._id}
+                  value={trip._id}
                 >
                   <MdDelete />
                 </button>

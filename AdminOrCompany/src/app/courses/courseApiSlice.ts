@@ -29,9 +29,9 @@ export const courseApiSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ["Courses"],
     }),
-    getAllCourses: builder.query<{ allCourse: Course[] }, null>({
+    getAllCourses: builder.query<any[], null>({
       query: () => ({
-        url: "/course",
+        url: "/upcommingTrip",
         method: "GET",
       }),
       providesTags: ["Courses"],
