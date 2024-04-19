@@ -21,6 +21,6 @@ router
 router
   .route("/upcommingTrips")
   .get(handleGetOwnUpcommingTrip)
-  .post(addUpcommingTrip);;
+  .post(addUpcommingTrip);
 
 module.exports = router;
