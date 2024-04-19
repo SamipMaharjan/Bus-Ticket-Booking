@@ -801,3 +801,19 @@
 20240419	10:24:18 	 03c47cfc-338b-463b-85bc-d5b6822a3775 	 POST 	 http://localhost:5174 	 /adminLogin
 >>>>>>> Stashed changes
 >>>>>>> Stashed changes
+20240419	11:21:45 	 1383c338-c7d1-4407-b4c7-0ea148562e21 	 OPTIONS 	 http://localhost:5174 	 /course
+20240419	11:21:45 	 e88f8d0b-f9dd-4524-bf1a-3780e5aad0d7 	 GET 	 http://localhost:5174 	 /course
+20240419	11:42:12 	 d6afc8b4-7910-4640-b5b2-4a0b1081df32 	 OPTIONS 	 http://localhost:5174 	 //upcommingTrip
+20240419	11:42:12 	 8a5a0e20-f4ff-48ed-8f10-b341f1da8cf4 	 POST 	 http://localhost:5174 	 //upcommingTrip
+20240419	11:43:13 	 26b1c9ff-0c61-40fc-8139-58b737d759a1 	 OPTIONS 	 http://localhost:5174 	 /upcommingTrip
+20240419	11:43:13 	 f8ca5ff2-6f9d-4b79-b5a6-e9106deefdad 	 POST 	 http://localhost:5174 	 /upcommingTrip
+20240419	11:43:38 	 93f3d9c5-bec4-40f5-bed5-114f83b8c8ad 	 OPTIONS 	 http://localhost:5174 	 /course
+20240419	11:43:38 	 788abaf4-97df-4981-bf6a-fa2837cd3e27 	 GET 	 http://localhost:5174 	 /course
+20240419	11:46:41 	 68c00317-b05e-4a91-baf4-c51160c3e24b 	 OPTIONS 	 http://localhost:5174 	 /upcommingTrip
+20240419	11:46:41 	 e87eebf3-e31e-4f93-81d3-b377b04a4668 	 GET 	 http://localhost:5174 	 /upcommingTrip
+20240419	11:51:28 	 b64df59c-31f1-498a-809f-03457c8557cc 	 OPTIONS 	 http://localhost:5174 	 /course/661ce47beacf41930c43f611
+20240419	11:51:28 	 40a998f4-bfab-4325-9887-92e77595e96c 	 GET 	 http://localhost:5174 	 /course/661ce47beacf41930c43f611
+20240419	11:52:43 	 80cd7384-0cba-433f-84aa-140b3b1cc81f 	 OPTIONS 	 http://localhost:5174 	 /currentUser
+20240419	11:52:43 	 97f5028c-bda8-4b39-b3f3-5682b420a6a8 	 GET 	 http://localhost:5174 	 /currentUser
+20240419	11:54:16 	 53e18f81-5147-4acf-a3f6-b9d5306d2998 	 OPTIONS 	 http://localhost:5174 	 /upcommingTrip
+20240419	11:54:16 	 c6f3b9b6-dc40-40a3-9939-59f747046537 	 GET 	 http://localhost:5174 	 /upcommingTrip
