@@ -5,6 +5,7 @@ const whitelist = [
   "http://127.0.0.1:5501",
   "http://localhost:3501",
   "https://www.google.com",
+  "http://localhost:5174",
 ];
 const corsOptions = {
   origin: (origin, callback) => {

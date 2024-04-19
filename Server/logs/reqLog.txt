@@ -652,6 +652,39 @@
 20240412	21:12:18 	 7e7cace3-cda3-446f-878e-35104ff715ff 	 POST 	 undefined 	 /company
 20240412	21:14:12 	 7c7f4b9f-23e7-42e3-a860-3b380cd2bf91 	 POST 	 undefined 	 /company
 20240414	17:58:10 	 01f27fd2-a27c-4316-840a-7deeadd3c531 	 POST 	 undefined 	 /adminLogin
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+20240415	09:42:26 	 9d360008-b515-42aa-8ad7-33dfd9a9bd63 	 GET 	 http://127.0.0.1:5501 	 /registerUser
+20240415	09:45:08 	 fe50e4ce-2cf0-4850-a3ed-c9914d279acb 	 GET 	 http://127.0.0.1:5501 	 /registerUser
+20240415	09:45:23 	 7616ea84-a40f-4ead-8036-c099a05a8c57 	 GET 	 undefined 	 /registerUser
+20240415	09:45:23 	 26418685-e24e-4c9d-a411-c96b34d408ff 	 GET 	 undefined 	 /favicon.ico
+20240415	09:49:30 	 081760fe-62fc-4481-8cc2-ffef730f9539 	 OPTIONS 	 http://127.0.0.1:5501 	 /registerUser
+20240415	09:49:30 	 d0e2b073-6daf-4287-82c0-4719efeb1e40 	 POST 	 http://127.0.0.1:5501 	 /registerUser
+20240415	09:51:09 	 24df7da0-2995-474d-8a0c-ed41df9efb04 	 OPTIONS 	 http://127.0.0.1:5501 	 /registerUser
+20240415	09:51:09 	 926611f9-6bc0-4355-b9f0-d744fb162a97 	 POST 	 http://127.0.0.1:5501 	 /registerUser
+20240415	09:51:30 	 fe5a8e61-16b6-4acc-aca1-f8a9236d9caa 	 OPTIONS 	 http://127.0.0.1:5501 	 /registerUser
+20240415	09:51:30 	 caba1444-82f5-4742-a7a0-ea5ee07dba18 	 POST 	 http://127.0.0.1:5501 	 /registerUser
+20240415	09:52:25 	 dad6fc17-f362-489c-96d1-a02422a06f8d 	 OPTIONS 	 http://127.0.0.1:5501 	 /registerUser
+20240415	09:52:25 	 f94995c6-bddb-4600-b71b-7ec785737d34 	 POST 	 http://127.0.0.1:5501 	 /registerUser
+20240415	09:59:39 	 90a020ff-b30b-45ea-bf82-9a28192cba3c 	 OPTIONS 	 http://127.0.0.1:5501 	 /registerUser
+20240415	09:59:39 	 9c3e6a6d-44bc-4bce-82af-d47fc91fbf19 	 POST 	 http://127.0.0.1:5501 	 /registerUser
+20240415	10:23:40 	 caa9155f-764f-415b-a719-2feb6ae371b8 	 OPTIONS 	 http://127.0.0.1:5501 	 /login
+20240415	10:23:40 	 28875043-2f14-4d62-b361-4d4094841649 	 POST 	 http://127.0.0.1:5501 	 /login
+20240415	10:25:14 	 a87082e8-10d5-4e13-a439-b7d6af4fd21c 	 OPTIONS 	 http://127.0.0.1:5501 	 /login
+20240415	10:25:14 	 56ef00f9-2d4b-4db7-9aae-15e93b0c59aa 	 POST 	 http://127.0.0.1:5501 	 /login
+20240415	12:09:38 	 d7abbd5c-fc29-4163-9c38-e29fb46583ce 	 OPTIONS 	 http://127.0.0.1:5501 	 /registerUser
+20240415	12:09:38 	 6c8adab0-f532-4b92-8486-3c74b82fd8a6 	 POST 	 http://127.0.0.1:5501 	 /registerUser
+20240415	12:18:52 	 a6584e7e-45f9-4296-bc9b-bec1679c03ef 	 OPTIONS 	 http://127.0.0.1:5501 	 /login
+20240415	12:18:52 	 80d80867-66ef-4d63-9717-d319775ebef2 	 POST 	 http://127.0.0.1:5501 	 /login
+20240415	12:20:45 	 5ca59ee0-b9f1-4a10-95dc-f29a52c7432c 	 OPTIONS 	 http://127.0.0.1:5501 	 /login
+20240415	12:20:45 	 5d077e2b-98c0-486c-8172-1c7b44cb2076 	 POST 	 http://127.0.0.1:5501 	 /login
+20240415	12:20:57 	 c13fe24e-93b5-4038-940d-a0bff8b76aca 	 OPTIONS 	 http://127.0.0.1:5501 	 /login
+20240415	12:20:57 	 a358cc54-3891-4b1b-a562-215b620fe3a0 	 POST 	 http://127.0.0.1:5501 	 /login
+20240415	12:21:39 	 0b71c95d-8813-4f96-991c-8e3b466a6dff 	 OPTIONS 	 http://127.0.0.1:5501 	 /login
+20240415	12:21:39 	 05f671e8-e1f4-4880-be22-925971a1ee10 	 POST 	 http://127.0.0.1:5501 	 /login
+=======
+>>>>>>> Stashed changes
 20240415	19:41:22 	 d746e531-f6b7-4782-8426-5f5e65f4732f 	 GET 	 undefined 	 /upcommingTrip
 20240415	19:42:06 	 f97fbdbd-198d-4dc7-a828-2137f850534b 	 GET 	 undefined 	 /upcommingTrip
 20240415	19:42:18 	 1d8f663d-e68c-42b4-a0f4-b46888e6d465 	 GET 	 undefined 	 /upcommingTrip
@@ -745,3 +778,26 @@
 20240417	09:49:12 	 419c6d32-26f8-45aa-8dfb-be70bdada84f 	 GET 	 undefined 	 /company/upcommingTrips
 20240417	09:50:14 	 63562129-fdd4-453b-94c6-1fda92137110 	 GET 	 undefined 	 /company/upcommingTrips
 20240417	09:50:42 	 9070f355-1f06-4f0c-a04e-644dacbd8f4d 	 GET 	 undefined 	 /company/upcommingTrips
+<<<<<<< Updated upstream
+=======
+20240419	10:08:13 	 3c195517-346e-4312-aace-7e6b17c5c14f 	 OPTIONS 	 http://localhost:5174 	 /admin/login
+20240419	10:09:18 	 54c0d5f1-435c-4ee5-84c1-fe1690ae4ab2 	 OPTIONS 	 http://localhost:5174 	 /admin/login
+20240419	10:10:46 	 ed6f5246-8b19-405d-a521-64ec780f304f 	 OPTIONS 	 http://localhost:5174 	 /adminLogin
+20240419	10:10:50 	 b45f9d24-555b-43be-bc45-2d4b0ebdc526 	 OPTIONS 	 http://localhost:5174 	 /adminLogin
+20240419	10:12:56 	 54f4b6bd-b3f2-4507-9b61-a685e104127b 	 OPTIONS 	 http://localhost:5174 	 /adminLogin
+20240419	10:13:33 	 286d8f0a-31e0-4c00-842d-c7bb0cb1d265 	 OPTIONS 	 http://localhost:5174 	 /adminLogin
+20240419	10:15:15 	 bf7b2979-8f60-4c93-a56a-e4e13fb1da82 	 OPTIONS 	 http://localhost:5174 	 /adminLogin
+20240419	10:15:15 	 47ae4a32-46cd-4c77-be39-860c32c128b2 	 POST 	 http://localhost:5174 	 /adminLogin
+20240419	10:16:29 	 dd30e66a-0fad-4c8a-908f-ea4f9d82017c 	 OPTIONS 	 http://localhost:5174 	 /teachers
+20240419	10:16:29 	 3b80b696-3faf-40c3-b529-abc7ff5e061b 	 GET 	 http://localhost:5174 	 /teachers
+20240419	10:16:33 	 2ced6e02-c220-4089-a41c-6ceeb2595691 	 OPTIONS 	 http://localhost:5174 	 /students
+20240419	10:16:33 	 fc775cfb-138e-45ea-9423-c825d32526e7 	 GET 	 http://localhost:5174 	 /students
+20240419	10:17:00 	 2bbfc82e-a048-43fe-b5ad-9a4c29801ae1 	 OPTIONS 	 http://localhost:5174 	 /adminLogin
+20240419	10:17:00 	 2b162510-68be-4719-a0b2-b6601811a95c 	 POST 	 http://localhost:5174 	 /adminLogin
+20240419	10:23:41 	 f08e67a2-49e2-427a-90b6-01a468266ca9 	 OPTIONS 	 http://localhost:5174 	 /admin/login
+20240419	10:23:41 	 aa36aaf5-1312-4ca8-9ddf-a79ce7430b51 	 POST 	 http://localhost:5174 	 /admin/login
+20240419	10:23:43 	 3d4150b1-ca8d-418a-9409-fd4db71aa756 	 POST 	 http://localhost:5174 	 /admin/login
+20240419	10:24:18 	 114a4dbf-66ba-4084-bdc5-cd5ed4aa9465 	 OPTIONS 	 http://localhost:5174 	 /adminLogin
+20240419	10:24:18 	 03c47cfc-338b-463b-85bc-d5b6822a3775 	 POST 	 http://localhost:5174 	 /adminLogin
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes

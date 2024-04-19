@@ -20,7 +20,19 @@ const PORT = process.env.PORT || 3501;
 //custom middleware logger
 app.use(logger);
 
-app.use(cors(corsOptions));
+app.use(
+  cors({
+    origin: [
+      "http://www.yoursite.com",
+      "http://127.0.0.1:5500",
+      "http://127.0.0.1:5501",
+      "http://localhost:3501",
+      "https://www.google.com",
+      "http://localhost:5174",
+    ],
+    credentials: true,
+  })
+);
 app.use(cookieParser());
 
 // built in middleware to handle urlencoded data
@@ -40,7 +52,7 @@ app.use("/", require("./routes/api/register"));
 app.use(require("./routes/api/auth"));
 app.use(require("./routes/api/refresh"));
 app.use(require("./routes/api/logout"));
-app.use("/company",require("./routes/api/company"));
+app.use("/company", require("./routes/api/company"));
 app.use(require("./routes/api/upcommingTrips"));
 app.use(require("./routes/api/completedTrips"));
 app.use(require("./routes/api/users"));
