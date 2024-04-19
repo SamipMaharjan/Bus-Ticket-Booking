@@ -9,8 +9,8 @@ const upcommingTripsSchema = z.object({
   banner: z.string().optional(),
   passngerIds: z.array(z.string()).optional(),
   Status: z.string().optional(),
-  Price: z.number().optional(),
-  Image: z.string().optional(),
+  price: z.number().min(1),
+  image: z.string().min(1),
 });
 
 module.exports = upcommingTripsSchema;

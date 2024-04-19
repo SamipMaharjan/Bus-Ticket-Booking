@@ -9,6 +9,7 @@ const { verifyJWT } = require("./middleware/verifyJWT");
 const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 const connectDB = require("./config/dbConn");
+const verifyRoles = require("./middleware/verifyRoles");
 
 //Connect to Database
 connectDB();
@@ -37,7 +38,6 @@ app.use(cookieParser());
 app.use("/", require("./routes/root"));
 app.use("/", require("./routes/api/register"));
 app.use(require("./routes/api/auth"));
-app.use(require("./routes/api/admin"));
 app.use(require("./routes/api/refresh"));
 app.use(require("./routes/api/logout"));
 app.use("/company",require("./routes/api/company"));
@@ -46,6 +46,8 @@ app.use(require("./routes/api/completedTrips"));
 app.use(require("./routes/api/users"));
 app.use(require("./routes/api/bus"));
 
+app.use(require("./routes/api/admin"));
+app.use(verifyRoles);
 app.use(verifyJWT);
 app.use("/employees", require("./routes/api/employees"));
 

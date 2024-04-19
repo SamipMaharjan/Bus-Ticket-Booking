@@ -25,11 +25,13 @@ const upcommingTripsSchema = new Schema({
   banner: String,
   passengerIds: [String],
   Status: String,
-  Price: {
-    type: Number
+  price: {
+    type: Number,
+    required: true
   },
-  Image: {
-    type: String
+  image: {
+    type: String,
+    required: true
   }
 });
 

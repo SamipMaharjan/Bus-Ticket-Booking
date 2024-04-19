@@ -12,10 +12,15 @@ const {
 router
   .route("/")
   .get(handleGetAllCompanies)
-  .delete(deleteCompany)
-  .post(addBus)
-  .post(addUpcommingTrip);
+  .delete(deleteCompany); 
 
-router.route("/:id").get(handleGetOwnBus).get(handleGetOwnUpcommingTrip);
+router
+  .route("/bus")
+  .get(handleGetOwnBus)
+  .post(addBus);
+router
+  .route("/upcommingTrips")
+  .get(handleGetOwnUpcommingTrip)
+  .post(addUpcommingTrip);;
 
 module.exports = router;

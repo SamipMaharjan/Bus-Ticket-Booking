@@ -1,5 +1,6 @@
 const Company = require("../model/Company");
 const Bus = require("../model/Bus");
+const UpcommingTrips = require("../model/UpcommingTrips");
 
 const handleGetAllCompanies = async (req, res) => {
   try {
@@ -93,21 +94,21 @@ const addUpcommingTrip = async (req, res) => {
 
 const handleGetOwnUpcommingTrip = async (req, res) => {
   try {
-    const companyId = req.params.id;
-    const result = await Company
-    .findById({ _id: companyId });
+    const companyId = req.body.id;
+    const result = await UpcommingTrips.find({ companyId: companyId }).exec();
     // .distinct("buses",{ _id: companyId });
+    console.log(result);
     if (result) {
       // If company is found, log company data and send buses as response
       console.log('Company data:', result);
-      console.log('Buses:', result.upcomming_trips);
+      // console.log('Buses:', result.upcomming_trips);
 
       // Send company.buses as response
-      res.status(200).json(result.upcomming_trips);
+      res.status(200).json(result);
     } else {
       // If company is not found, send an error response
-      console.log('Company not found');
-      res.status(404).json({ message: 'Company not found' });
+      console.log('Upcomming Trips not found');
+      res.status(404).json({ message: 'Upcomming Trips not found' });
     }
   } catch (err) {
     console.error(err);

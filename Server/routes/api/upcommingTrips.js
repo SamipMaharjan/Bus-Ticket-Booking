@@ -2,18 +2,16 @@ const router = require("express").Router();
 const {
   handleCreateUpcommingTrip,
   handleGetAllUpcommingTrips,
-  deleteTrip,
-  addImage
+  deleteTrip
 } = require("../../controllers/upcommingTripsController");
+const { verifyJWT } = require("../../middleware/verifyJWT");
+const verifyRoles = require("../../middleware/verifyRoles");
+const ROLES_LIST = require("../../config/roles_list");
 
 router
   .route("/upcommingTrip")
-  .post(handleCreateUpcommingTrip)
-  .get(handleGetAllUpcommingTrips)
-  .delete( deleteTrip)
-
-router
-  .route("/upcommingTrip/addImage")
-  .post(addImage)
+  .post(verifyRoles(ROLES_LIST.Admin),handleCreateUpcommingTrip)
+  .get(verifyJWT,handleGetAllUpcommingTrips)
+  .delete(verifyRoles(ROLES_LIST.Admin),deleteTrip)
   
 module.exports = router;
