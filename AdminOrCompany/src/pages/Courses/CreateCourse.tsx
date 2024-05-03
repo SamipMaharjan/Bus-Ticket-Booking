@@ -31,6 +31,7 @@ const CreateCourse = () => {
     //     });
     //   })
     //   .catch((err) => toast.error(`Error: ${err.data.error}`));
+    data = { ...data, price: parseInt(data.price) };
     console.log("JSON.stringify(data)", JSON.stringify(data));
     fetch(`${baseUrl}/upcommingTrip`, {
       method: "POST",
