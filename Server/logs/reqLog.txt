@@ -871,3 +871,5 @@
 20240419	11:54:16 	 53e18f81-5147-4acf-a3f6-b9d5306d2998 	 OPTIONS 	 http://localhost:5174 	 /upcommingTrip
 20240419	11:54:16 	 c6f3b9b6-dc40-40a3-9939-59f747046537 	 GET 	 http://localhost:5174 	 /upcommingTrip
 >>>>>>> origin/Khalti
+20240422	14:41:48 	 be3cd05d-0a9f-40d7-9824-f4c734aa0c17 	 POST 	 undefined 	 /login
+20240422	14:51:02 	 1eff9ea1-788a-4e3e-ab73-98a34408e112 	 GET 	 http://127.0.0.1:5502 	 /upcommingTrip

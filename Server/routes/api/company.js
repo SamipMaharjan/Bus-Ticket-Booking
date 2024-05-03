@@ -6,13 +6,15 @@ const {
   addBus,
   handleGetOwnBus,
   addUpcommingTrip, 
-  handleGetOwnUpcommingTrip
+  handleGetOwnUpcommingTrip,
+  companyLogin
 } = require("../../controllers/companyController");
 
 router
   .route("/")
   .get(handleGetAllCompanies)
-  .delete(deleteCompany); 
+  .delete(deleteCompany)
+  .post(companyLogin);
 
 router
   .route("/bus")
