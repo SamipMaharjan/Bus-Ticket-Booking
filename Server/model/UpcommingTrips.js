@@ -27,12 +27,12 @@ const upcommingTripsSchema = new Schema({
   Status: String,
   price: {
     type: Number,
-    required: true
+    required: true,
   },
   image: {
     type: String,
-    required: true
-  }
+    required: false,
+  },
 });
 
 module.exports = mongoose.model("UpcommingTrips", upcommingTripsSchema);

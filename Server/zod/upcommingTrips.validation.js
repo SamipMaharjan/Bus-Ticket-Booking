@@ -10,7 +10,7 @@ const upcommingTripsSchema = z.object({
   passngerIds: z.array(z.string()).optional(),
   Status: z.string().optional(),
   price: z.number().min(1),
-  image: z.string().min(1),
+  image: z.string().optional(),
 });
 
 module.exports = upcommingTripsSchema;
