@@ -10,9 +10,9 @@ const handleCreateBus = async (req, res) => {
   try {
     const { upcommingTripId, driverId, companyId, name, number } = req.body;
 
-    console.log("2 ",upcommingTripId);
+    console.log("2 ", upcommingTripId);
     const tripExists = await UpcommingTrip.findById(upcommingTripId).exec();
-    console.log("trip exists",tripExists);
+    console.log("trip exists", tripExists);
     if (!tripExists) {
       console.log("Upcomming trip doesnot exist");
       return res.status(404).json({
@@ -20,6 +20,7 @@ const handleCreateBus = async (req, res) => {
         message: "Trip with the specified ID does not exist",
       });
     }
+
     const companyExists = await Company.findById(companyId).exec();
     // console.log("company exists",companyExists);
     if (!companyExists) {
@@ -52,9 +53,9 @@ const handleCreateBus = async (req, res) => {
     const result = await Bus.create({
       upcommingTripId,
       driverId,
-      companyId, 
-      name, 
-      number
+      companyId,
+      name,
+      number,
     });
     console.log("Result after creating", result);
     if (result) {
@@ -94,10 +95,10 @@ const handleGetAllBuses = async (req, res) => {
 
 const deleteBus = async (req, res) => {
   console.log(req.body.id);
-  try{
+  try {
     const busId = req.body.id;
     const result = await Bus.findOneAndDelete({ _id: busId });
-    if (result) {;
+    if (result) {
       return res.status(200).json({
         success: true,
         message: "Bus succesfully deleted.",
@@ -105,12 +106,13 @@ const deleteBus = async (req, res) => {
     }
   } catch (err) {
     console.error(err);
-    return res.status(500).json({ success: false, message: "Internal Server Error"})
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal Server Error" });
   }
 };
 
-
-const updateBus =  async (req, res) => {
+const updateBus = async (req, res) => {
   const updatedBus = await Bus.findOneAndUpdate(
     { _id: busId }, // Filter: Identify the bus document to update
     { $set: { fieldToUpdate: newValue } }, // Update: Specify the fields to update and their new values
@@ -119,9 +121,9 @@ const updateBus =  async (req, res) => {
 
   // Check if the bus was found and updated successfully
   if (updatedBus) {
-    console.log('Bus updated successfully:', updatedBus);
+    console.log("Bus updated successfully:", updatedBus);
   } else {
-    console.log('Bus not found or not updated.');
+    console.log("Bus not found or not updated.");
   }
 };
 module.exports = { handleCreateBus, handleGetAllBuses, deleteBus };
