@@ -2,7 +2,7 @@ const Users = require("../model/User");
 
 const handleGetAllUsers = async (req, res) => {
   try {
-    console.log("\nhello");
+    // console.log("\nhello");
     const allUsers = await Users.find({}).exec();
     return res.status(200).json(allUsers);
   } catch (err) {

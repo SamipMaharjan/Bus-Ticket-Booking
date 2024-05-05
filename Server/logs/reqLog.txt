@@ -853,3 +853,5 @@
 20240505	18:44:23 	 35fcd3dd-a65f-42e8-9533-88bca7184d5f 	 GET 	 http://127.0.0.1:5501 	 /upcommingTrip
 20240505	18:46:54 	 984ca6e8-6b27-4dad-919f-be25e9f02f1d 	 POST 	 undefined 	 /login
 20240505	18:47:13 	 83b8180a-ba0f-498d-aeaa-1e80b21a388c 	 POST 	 undefined 	 /adminLogin
+20240505	21:58:08 	 854f6cff-7947-4e45-b2ca-1a9a8220ccfd 	 GET 	 undefined 	 /company
+20240505	21:58:56 	 128b7301-0c27-44b4-a65e-5043fba3cf3e 	 POST 	 undefined 	 /company

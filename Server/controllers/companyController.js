@@ -1,6 +1,65 @@
 const Company = require("../model/Company");
 const Bus = require("../model/Bus");
 const UpcommingTrips = require("../model/UpcommingTrips");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+
+const companyLogin = async (req, res) => {
+  const { email, password } = req.body;
+  if (!email || !password)
+  return res.status(400).json({ message: "Email or password missing" });
+  // console.log(User, email, password, "========");
+  const foundUser = await Company.findOne({ email: email }).exec();
+  // console.log(foundUser);
+  if (!foundUser) {
+    console.log("401:", email, "User does not exist");
+    return res
+      .status(401)
+      .json({ error: "Unauthorized: Company does not exist." });
+  }
+  //evaluate password
+  // console.log("pass", password, "fUpass:", foundUser.password);
+  const match = await bcrypt.compare(password, foundUser.passwordHash);
+  if (match) {
+    // const roles = Object.values(foundUser.roles);
+
+    const Roles = {"Admin": 5150};
+    // create and send JWT
+    // console.log("asdf", process.env.ACCESS_TOKEN_SECRET, foundUser.username);
+    // console.log(" secret", process.env.ACCESS_TOKEN_SECRET)
+    const accessToken = jwt.sign(
+      {
+        'UserInfo': 
+          { 
+            'username': foundUser.name, 
+            'roles': Roles, 
+            'email': email
+          }
+      },
+      process.env.ACCESS_TOKEN_SECRET,
+      { expiresIn: "5d" }
+    );
+    // const refreshToken = jwt.sign(
+    //   { username: foundUser.username },
+    //   process.env.REFRESH_TOKEN_SECRET,
+    //   { expiresIn: "10m" }
+    // );
+    // foundUser.refreshToken = refreshToken;
+    // const result = await foundUser.save();
+    // console.log("erase refToken result:", result);
+
+    // res.cookie("jwt", refreshToken, {
+    //   httpOnly: true,
+    //   maxAge: 24 * 60 * 60 * 1000,
+    //   sameSite: "None",
+    //   secure: true,
+    // });
+    res.status(200).json({success: true, token: accessToken });
+  } else {
+    // console.log("lastres");
+    res.sendStatus({ success: false, message: 401} );
+  }
+};
 
 const handleGetAllCompanies = async (req, res) => {
   try {
@@ -116,4 +175,4 @@ const handleGetOwnUpcommingTrip = async (req, res) => {
   }
 };
 
-module.exports = { handleGetAllCompanies, deleteCompany, addBus, handleGetOwnBus, addUpcommingTrip, handleGetOwnUpcommingTrip };
+module.exports = { companyLogin, handleGetAllCompanies, deleteCompany, addBus, handleGetOwnBus, addUpcommingTrip, handleGetOwnUpcommingTrip };
