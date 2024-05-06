@@ -855,3 +855,15 @@
 20240505	18:47:13 	 83b8180a-ba0f-498d-aeaa-1e80b21a388c 	 POST 	 undefined 	 /adminLogin
 20240505	21:58:08 	 854f6cff-7947-4e45-b2ca-1a9a8220ccfd 	 GET 	 undefined 	 /company
 20240505	21:58:56 	 128b7301-0c27-44b4-a65e-5043fba3cf3e 	 POST 	 undefined 	 /company
+20240506	15:16:00 	 10163b9f-cfd2-4db2-b933-7d26fd96d0d2 	 GET 	 undefined 	 /company/upcommingTrips
+20240506	15:17:17 	 2c8f93ea-4212-4924-9d39-f19a12049a27 	 GET 	 undefined 	 /company/upcommingTrips
+20240506	15:17:22 	 df0b24bb-2aa4-4f4c-a65a-6d77eb4e7b15 	 GET 	 undefined 	 /company/upcommingTrips
+20240506	15:17:49 	 1769bf06-f640-4969-a536-d52e84c5c8c0 	 GET 	 undefined 	 /company/upcommingTrips
+20240506	15:18:01 	 4feba92a-be48-405e-a04d-c88e6730ec7c 	 GET 	 undefined 	 /company/upcommingTrips
+20240506	15:18:38 	 08472a9f-37d1-47fc-b74a-05a2fa103004 	 GET 	 undefined 	 /company/upcommingTrips
+20240506	15:18:56 	 e946d523-fbea-4565-9d83-7e367caaa6fe 	 GET 	 undefined 	 /upcommingTrip
+20240506	15:19:40 	 9ad27293-5967-42cf-ad90-645b32a9b7be 	 POST 	 undefined 	 /upcommingTrip
+20240506	15:19:48 	 9298a6bd-c848-4d66-9183-ce5e7f4e91b2 	 POST 	 undefined 	 /upcommingTrip
+20240506	15:20:01 	 a0d87fab-33f2-40bf-ae30-dfa089827786 	 POST 	 undefined 	 /upcommingTrip
+20240506	15:20:09 	 4f8ddd34-bcd7-478e-b6ce-2f260ed2384a 	 GET 	 undefined 	 /upcommingTrip
+20240506	15:20:30 	 e2da4456-4c4b-428f-ba93-c1d1f5330455 	 GET 	 undefined 	 /company/upcommingTrips
