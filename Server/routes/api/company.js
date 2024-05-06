@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { verifyJWT } = require("../../middleware/verifyJWT");
 const {
+  companyLogin,
   handleGetAllCompanies,
   deleteCompany,
   addBus,
@@ -11,6 +12,7 @@ const {
 
 router
   .route("/")
+  .post(companyLogin)
   .get(handleGetAllCompanies)
   .delete(deleteCompany); 
 
