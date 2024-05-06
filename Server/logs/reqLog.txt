@@ -853,6 +853,7 @@
 20240505	18:44:23 	 35fcd3dd-a65f-42e8-9533-88bca7184d5f 	 GET 	 http://127.0.0.1:5501 	 /upcommingTrip
 20240505	18:46:54 	 984ca6e8-6b27-4dad-919f-be25e9f02f1d 	 POST 	 undefined 	 /login
 20240505	18:47:13 	 83b8180a-ba0f-498d-aeaa-1e80b21a388c 	 POST 	 undefined 	 /adminLogin
+<<<<<<< Updated upstream
 20240505	18:58:31 	 a7948364-658f-4f70-9546-32e0c95af2e8 	 POST 	 undefined 	 /adminLogin
 20240505	18:58:41 	 5cf4cea0-8c64-424c-8f3a-8daf413f4ffe 	 POST 	 undefined 	 /login
 20240505	18:58:46 	 53a88bf7-175d-4d3d-9964-fd543626f5f0 	 GET 	 undefined 	 /company
@@ -885,3 +886,28 @@
 20240506	15:17:42 	 1d9421c3-2c43-4c62-a3d7-c35626baa1b0 	 POST 	 http://localhost:5174 	 /registerCompany
 20240506	15:20:03 	 474d74cf-576c-44f8-bc03-0ba22b4fe851 	 OPTIONS 	 http://localhost:5174 	 /registerCompany
 20240506	15:20:03 	 c6083ec5-f516-473f-90bb-0924ffd19930 	 POST 	 http://localhost:5174 	 /registerCompany
+=======
+20240505	21:58:08 	 854f6cff-7947-4e45-b2ca-1a9a8220ccfd 	 GET 	 undefined 	 /company
+20240505	21:58:56 	 128b7301-0c27-44b4-a65e-5043fba3cf3e 	 POST 	 undefined 	 /company
+20240506	16:17:31 	 731f00a9-26de-47e1-964f-bdb19618e524 	 OPTIONS 	 http://localhost:5174 	 /adminLogin
+20240506	16:17:31 	 6be9674a-c8a6-4323-8b4f-a699d8f12a37 	 POST 	 http://localhost:5174 	 /adminLogin
+20240506	16:17:33 	 c4d3b0de-bc66-4da0-905f-bff7b76d3803 	 POST 	 http://localhost:5174 	 /adminLogin
+20240506	16:17:45 	 f4332746-a9f6-457a-8bf3-298c9c5ce3b8 	 OPTIONS 	 http://localhost:5174 	 /adminLogin
+20240506	16:17:45 	 c002536a-3669-4c2c-ab44-8498c1aa8cfe 	 POST 	 http://localhost:5174 	 /adminLogin
+20240506	16:19:39 	 7b90b8af-6ff2-44b0-822d-3aa60344b96b 	 OPTIONS 	 http://localhost:5174 	 /adminLogin
+20240506	16:19:39 	 b3c58d39-565f-4f36-9584-2c4809d57612 	 POST 	 http://localhost:5174 	 /adminLogin
+20240506	16:20:10 	 55d60a9b-6db4-4eaa-b306-04d8f0d38bac 	 OPTIONS 	 http://localhost:5174 	 /adminLogin
+20240506	16:20:10 	 ed83d7d5-156a-49f3-a25d-d3c1fe496c68 	 POST 	 http://localhost:5174 	 /adminLogin
+20240506	16:20:21 	 0b73440c-cfd8-4dec-a019-f7d37657efa4 	 OPTIONS 	 http://localhost:5174 	 /adminLogin
+20240506	16:20:21 	 b0576250-a4a1-45e7-bfc3-c453a38555de 	 POST 	 http://localhost:5174 	 /adminLogin
+20240506	16:20:34 	 d045f1f3-7c8a-4299-8ab0-4509d8e35e71 	 OPTIONS 	 http://localhost:5174 	 /adminLogin
+20240506	16:20:34 	 dcddc1de-3017-4176-bef0-2d0b06bf47ca 	 POST 	 http://localhost:5174 	 /adminLogin
+20240506	16:20:53 	 ceffb0e6-5347-4f74-8c62-c769b47f656b 	 OPTIONS 	 http://localhost:5174 	 /company
+20240506	16:20:53 	 fa96475f-2a90-4152-9826-5252f49dd796 	 POST 	 http://localhost:5174 	 /company
+20240506	16:22:20 	 003a60f1-3d8b-4f8e-a469-10d49e48332a 	 OPTIONS 	 http://localhost:5174 	 /company
+20240506	16:22:20 	 dfe06322-ff35-4610-894a-66aa94a31a42 	 POST 	 http://localhost:5174 	 /company
+20240506	16:22:26 	 5b79701b-579e-461e-a44b-3b72bd904241 	 OPTIONS 	 http://localhost:5174 	 /currentUser
+20240506	16:22:26 	 014dcc25-5534-4921-aa3e-32aedddfa057 	 GET 	 http://localhost:5174 	 /currentUser
+20240506	16:27:06 	 92cc30ca-b598-46e2-bd9c-c8a67140e659 	 OPTIONS 	 http://localhost:5174 	 /upcommingTrip
+20240506	16:27:06 	 b77955f1-af1b-4f6b-8730-05e2b4436427 	 GET 	 http://localhost:5174 	 /upcommingTrip
+>>>>>>> Stashed changes

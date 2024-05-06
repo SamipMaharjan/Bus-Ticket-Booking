@@ -54,7 +54,7 @@ const CreateCourse = () => {
         <div className="flex flex-col">
           {/* <!-- Input Fields --> */}
           <div className="rounded-sm flex flex-col gap-3 p-6.5 border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
-            <div className="flex flex-col gap-5.5">
+            {/* <div className="flex flex-col gap-5.5">
               <div>
                 <label className="mb-3 block text-black dark:text-white">
                   Company ID:
@@ -69,8 +69,8 @@ const CreateCourse = () => {
                   {errors?.companyId?.message}
                 </span>
               </div>
-            </div>
-            <div className="flex flex-col gap-5.5">
+            </div> */}
+            {/* <div className="flex flex-col gap-5.5">
               <div>
                 <label className="mb-3 block text-black dark:text-white">
                   Driver ID:
@@ -85,7 +85,7 @@ const CreateCourse = () => {
                   {errors?.driverId?.message}
                 </span>
               </div>
-            </div>
+            </div> */}
             <div className="flex flex-col gap-5.5">
               <div>
                 <label className="mb-3 block text-black dark:text-white">

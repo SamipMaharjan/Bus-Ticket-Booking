@@ -16,7 +16,8 @@ export default function ViewCourse() {
     useDeleteCourseMutation();
 
   const handleDelete = (courseID: string | undefined) => {
-    deleteCourse({ id: courseID || "ifNoId" })
+    deleteCourse({ id: courseID || "ifNoId" });
+    fetch
       .unwrap()
       .then((res) => {
         console.log(res);
