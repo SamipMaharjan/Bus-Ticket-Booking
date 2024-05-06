@@ -30,7 +30,9 @@ const handleNewUser = async (req, res) => {
         roles,
       });
       console.log("result", result);
-      res.status(201).json({ success: true, message: `New user ${username} created ` });
+      res
+        .status(201)
+        .json({ success: true, message: `New user ${username} created ` });
     } else if (roleValues.includes(allRoles.Driver)) {
       console.log("comid --------------------", companyId);
       handleNewDriver(req, res);
@@ -93,15 +95,7 @@ const handleNewCompany = async (req, res) => {
   const { name, password, roles, email, location, contact, insurance } =
     req.body;
   // console.log("reqbody", req.body);
-  if (
-    !name ||
-    !password ||
-    !roles ||
-    !email ||
-    !location ||
-    !contact ||
-    insurance == undefined
-  )
+  if (!name || !password || !roles || !email || !location || !contact)
     return res.status(400).json({ message: "Not all required fields are met" });
 
   console.log("req.body", req.body);

@@ -8,9 +8,18 @@ const { verifyJWT } = require("../middleware/verifyJWT");
 
 const handleCreateUpcommingTrip = async (req, res) => {
   try {
-    const { companyId, driverId, pickUpPoint, destination, departureTime, price, image } = req.body;
+    const {
+      companyId,
+      driverId,
+      pickUpPoint,
+      destination,
+      departureTime,
+      price,
+      image,
+    } = req.body;
+
+    // console.log("company exists", companyExists);
     const companyExists = await Company.findById(companyId).exec();
-    // console.log("company exists",companyExists);
     if (!companyExists) {
       console.log("Company doesnot exist");
       return res.status(404).json({
@@ -18,7 +27,7 @@ const handleCreateUpcommingTrip = async (req, res) => {
         message: "Company with the specified ID does not exist",
       });
     }
-    console.log("2 ",driverId);
+    console.log("2 ", driverId);
     // Check if DriverId exists in the database
     const driverExists = await User.find({
       _id: driverId,
@@ -46,7 +55,7 @@ const handleCreateUpcommingTrip = async (req, res) => {
       destination,
       departureTime,
       price,
-      image
+      image,
     });
     console.log("Result after creating", result);
     if (result) {
@@ -87,10 +96,10 @@ const handleGetAllUpcommingTrips = async (req, res) => {
 const deleteTrip = async (req, res) => {
   // console.log(req.body.id);
   // verifyJWT()
-  try{
+  try {
     const tripId = req.body.id;
     const result = await UpcommingTrips.findOneAndDelete({ _id: tripId });
-    if (result) {;
+    if (result) {
       return res.status(200).json({
         success: true,
         message: "Upcomming Trip succesfully deleted.",
@@ -98,8 +107,14 @@ const deleteTrip = async (req, res) => {
     }
   } catch (err) {
     console.error(err);
-    return res.status(500).json({ success: false, message: "Internal Server Error"})
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal Server Error" });
   }
 };
 
-module.exports = { handleCreateUpcommingTrip, handleGetAllUpcommingTrips, deleteTrip };
+module.exports = {
+  handleCreateUpcommingTrip,
+  handleGetAllUpcommingTrips,
+  deleteTrip,
+};
