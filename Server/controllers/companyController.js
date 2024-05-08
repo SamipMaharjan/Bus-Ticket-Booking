@@ -3,6 +3,7 @@ const Bus = require("../model/Bus");
 const UpcommingTrips = require("../model/UpcommingTrips");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 const companyLogin = async (req, res) => {
   const { email, password } = req.body;
@@ -175,4 +176,33 @@ const handleGetOwnUpcommingTrip = async (req, res) => {
   }
 };
 
-module.exports = { companyLogin, handleGetAllCompanies, deleteCompany, addBus, handleGetOwnBus, addUpcommingTrip, handleGetOwnUpcommingTrip };
+const getDetails = async (req, res) => {
+  const authHeader = req.headers.authorization || req.headers.Authorization;
+  if (!authHeader.startsWith("Bearer ")) {
+    return res
+      .status(401)
+      .json({ message: "Bearer missing in authorization header." });
+  }
+
+  const token = authHeader.split(" ")[1];
+
+  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, async (err, decoded) => {
+    if (err) {
+      console.error("\n Error:", err);
+      return res.sendStatus(403);
+    }
+
+    const foundUser = await Company.findOne({ email: decoded.UserInfo.email }).exec();
+    // console.log(foundUser);
+    if (!foundUser) {
+      console.log("401:", email, "User does not exist");
+      return res
+        .status(401)
+        .json({ error: "Unauthorized: User does not exist." });
+    }
+    
+    res.status(200).json({"success": foundUser}); // Attach result to req object
+  });
+};
+
+module.exports = { getDetails, companyLogin, handleGetAllCompanies, deleteCompany, addBus, handleGetOwnBus, addUpcommingTrip, handleGetOwnUpcommingTrip };

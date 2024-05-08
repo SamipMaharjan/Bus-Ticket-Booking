@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { verifyJWT } = require("../../middleware/verifyJWT");
 const {
+  getDetails,
   companyLogin,
   handleGetAllCompanies,
   deleteCompany,
@@ -17,9 +18,12 @@ router
   .delete(deleteCompany);
 
 router.route("/bus").get(handleGetOwnBus).post(addBus);
+
 router
   .route("/upcommingTrips")
   .get(handleGetOwnUpcommingTrip)
   .post(addUpcommingTrip);
+
+router.route("/user").get(getDetails);
 
 module.exports = router;
