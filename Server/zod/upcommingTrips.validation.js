@@ -11,6 +11,7 @@ const upcommingTripsSchema = z.object({
   Status: z.string().optional(),
   price: z.number().min(1),
   image: z.string().optional(),
+  status: z.string().optional()
 });
 
 module.exports = upcommingTripsSchema;

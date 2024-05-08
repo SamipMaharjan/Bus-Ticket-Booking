@@ -133,6 +133,7 @@ const handleGetOwnBus = async (req, res) => {
 };
 
 const addUpcommingTrip = async (req, res) => {
+  
   try {
     const companyId = req.body.id;
     const upcommingTripId = req.body.upcomming_trip;

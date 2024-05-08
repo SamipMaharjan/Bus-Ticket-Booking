@@ -32,7 +32,11 @@ const upcommingTripsSchema = new Schema({
   image: {
     type: String,
     required: false,
-  },
+  }, 
+  status: {
+    type: String,
+    default: 'upcomming'
+  }
 });
 
 module.exports = mongoose.model("UpcommingTrips", upcommingTripsSchema);
