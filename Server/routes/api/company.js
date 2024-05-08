@@ -6,23 +6,20 @@ const {
   deleteCompany,
   addBus,
   handleGetOwnBus,
-  addUpcommingTrip, 
-  handleGetOwnUpcommingTrip
+  addUpcommingTrip,
+  handleGetOwnUpcommingTrip,
 } = require("../../controllers/companyController");
 
 router
   .route("/")
   .post(companyLogin)
   .get(handleGetAllCompanies)
-  .delete(deleteCompany); 
+  .delete(deleteCompany);
 
-router
-  .route("/bus")
-  .get(handleGetOwnBus)
-  .post(addBus);
+router.route("/bus").get(handleGetOwnBus).post(addBus);
 router
   .route("/upcommingTrips")
   .get(handleGetOwnUpcommingTrip)
-  .post(addUpcommingTrip);;
+  .post(addUpcommingTrip);
 
 module.exports = router;

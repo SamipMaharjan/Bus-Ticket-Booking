@@ -1,3 +1,5 @@
+import CreateCompany from "@/pages/Company/CreateCompany";
+import ViewCompany from "@/pages/Company/ViewCompany";
 import Profile from "@/pages/profile/Profile";
 import { lazy } from "react";
 const CreateCourse = lazy(() => import("../pages/Courses/CreateCourse"));
@@ -68,6 +70,16 @@ const superAdminRoutes = [
     path: "/superadmin/course-content/:courseId",
     title: "EditCourseContent",
     component: EditCourseContent,
+  },
+  {
+    path: "/superadmin/company/create-company",
+    title: "EditCourseContent",
+    component: CreateCompany,
+  },
+  {
+    path: "/superadmin/company/view-company",
+    title: "EditCourseContent",
+    component: ViewCompany,
   },
 ];
 

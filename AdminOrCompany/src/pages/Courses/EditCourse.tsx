@@ -21,14 +21,14 @@ const EditCourse = () => {
     formState: { errors },
   } = useForm<Course>();
 
-  const { data: courseData, isFetching } = useGetCourseByIdQuery({
-    id: courseId || "1234",
-  });
+  // const { data: courseData, isFetching } = useGetCourseByIdQuery({
+  //   id: courseId || "1234",
+  // });
 
-  const [updateCourse, { isFetching: isUpdatingCourse }] =
-    useUpdateCourseMutation();
+  // const [updateCourse, { isFetching: isUpdatingCourse }] =
+  //   useUpdateCourseMutation();
 
-  useUpdateFormByFetchData(courseData?.foundCourse, reset);
+  // useUpdateFormByFetchData(courseData?.foundCourse, reset);
 
   function courseSubmit(data: Course) {
     console.log("coursedata", data);
@@ -44,9 +44,9 @@ const EditCourse = () => {
     // console.log("data", data);
   }
 
-  if (isFetching) {
-    return <Loader />;
-  }
+  // if (isFetching) {
+  //   return <Loader />;
+  // }
   return (
     <>
       <Toaster />

@@ -36,6 +36,13 @@ export const courseApiSlice = apiSlice.injectEndpoints({
       }),
       providesTags: ["Courses"],
     }),
+    // getEveryUpTrip: builder.query<any[], null>({
+    //   query: () => ({
+    //     url: "/company",
+    //     method: "GET",
+    //   }),
+    //   providesTags: ["Upcomming"],
+    // }),
     getCourseById: builder.query<{ foundCourse: Course }, { id: string }>({
       query: (data) => ({
         url: `/course/${data.id}`,
@@ -43,12 +50,28 @@ export const courseApiSlice = apiSlice.injectEndpoints({
       }),
       providesTags: ["Courses"],
     }),
-    deleteCourse: builder.mutation<any, { id: string }>({
+    deleteCourse: builder.mutation<any, { tripID: string }>({
       query: (data) => ({
-        url: `/course/${data.id}`,
+        url: `/upcommingTrip`,
+        body: { id: data.tripID },
         method: "DELETE",
       }),
       invalidatesTags: ["Courses"],
+    }),
+    deleteCompany: builder.mutation<any, { companyId: string }>({
+      query: (data) => ({
+        url: `/company`,
+        body: { id: data.companyId },
+        method: "DELETE",
+      }),
+      invalidatesTags: ["company"],
+    }),
+    getAllCompany: builder.query<any, null>({
+      query: () => ({
+        url: `/company`,
+        method: "GET",
+      }),
+      providesTags: ["company"],
     }),
   }),
 });
@@ -59,4 +82,7 @@ export const {
   useGetAllCoursesQuery,
   useGetCourseByIdQuery,
   useUpdateCourseContentMutation,
+  useGetEveryUpTripQuery,
+  useDeleteCompanyMutation,
+  useGetAllCompanyQuery,
 } = courseApiSlice;

@@ -70,7 +70,7 @@ const CreateCourse = () => {
                 </span>
               </div>
             </div> */}
-            {/* <div className="flex flex-col gap-5.5">
+            <div className="flex flex-col gap-5.5">
               <div>
                 <label className="mb-3 block text-black dark:text-white">
                   Driver ID:
@@ -85,7 +85,7 @@ const CreateCourse = () => {
                   {errors?.driverId?.message}
                 </span>
               </div>
-            </div> */}
+            </div>
             <div className="flex flex-col gap-5.5">
               <div>
                 <label className="mb-3 block text-black dark:text-white">

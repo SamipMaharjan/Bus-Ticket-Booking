@@ -32,7 +32,7 @@ function App() {
 
         <Route element={<DefaultLayout />}>
           <Route path="/superadmin" element={<SuperAdminLayout />}>
-            <Route path="/superadmin" element={<ECommerce />} />
+            {/* <Route path="/superadmin" element={<ECommerce />} /> */}
             {superAdminRoutes?.map((routes, i) => {
               const { path, component: Component } = routes;
               return (

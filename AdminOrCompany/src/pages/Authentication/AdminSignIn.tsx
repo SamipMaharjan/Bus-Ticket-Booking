@@ -19,7 +19,7 @@ const SignIn = () => {
   const [adminLogin, { isLoading }] = useAdminLoginMutation();
 
   const navigate = useNavigate();
-  if (CookieHelper.getCookie("adminToken")) navigate("/");
+  if (CookieHelper.getCookie("token")) navigate("/");
 
   const submitUserData = (data: LoginPayload) => {
     // console.log("userdata", data);

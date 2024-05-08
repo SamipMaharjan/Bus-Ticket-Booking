@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import {
+  useDeleteCompanyMutation,
   useDeleteCourseMutation,
+  useGetAllCompanyQuery,
   useGetAllCoursesQuery,
+  useGetEveryUpTripQuery,
 } from "../../app/courses/courseApiSlice";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FaPen } from "react-icons/fa";
@@ -10,27 +13,37 @@ import toast from "react-hot-toast";
 import { PiBooksFill } from "react-icons/pi";
 import { baseUrl } from "@/app/api/apiSlice";
 import CookieHelper from "@/helpers/CookieHelper";
+import { useEffect, useState } from "react";
 
-export default function ViewCourse() {
-  const { data: upcommingTrips } = useGetAllCoursesQuery(null);
-  console.log("upcommingTrips", upcommingTrips);
-  const [deleteCourse, { isLoading: isCourseDelete }] =
-    useDeleteCourseMutation();
+export default function ViewCompany() {
+  //   const { data: upcommingTrips } = useGetEveryUpTripQuery(null);
+  //   const [company, setCompany] = useState<any>();
 
-  const handleDelete = (tripID: string | undefined) => {
-    // fetch(`${baseUrl}/upcommingTrip`, {
-    //   method: "POST",
-    //   body: JSON.stringify({ id: tripID }),
+  const [deleteCompany, { isLoading: isCourseDelete }] =
+    useDeleteCompanyMutation();
+
+  const { data: company, isLoading: isCompanyL } = useGetAllCompanyQuery(null);
+  console.log("upcommingTrips", company);
+  //   useEffect(() => {
+  //     fetch(`${baseUrl}/company`)
+  //       .then((res) => res.json())
+  //       .then((data) => setCompany(data));
+  //   }, []);
+
+  const handleDelete = (companyId: string | undefined) => {
+    // fetch(`${baseUrl}/company`, {
+    //   method: "DELETE",
+    //   body: JSON.stringify({ id: companyId }),
     //   headers: {
     //     Authorization: `Bearer ${CookieHelper.getCookie("token")}`,
     //     "Content-Type": "application/json",
     //   },
     // })
-    deleteCourse({ tripID: tripID || "ifNoId" })
+    deleteCompany({ companyId: companyId || "ifNoId" })
       .unwrap()
       .then((res) => {
         console.log(res);
-        if (res.success) {
+        if (res?.success) {
           toast.success("Succesfully deleted.", {
             position: "top-right",
           });
@@ -51,22 +64,22 @@ export default function ViewCourse() {
           <div className="grid grid-cols-3 rounded-sm bg-gray-2 dark:bg-meta-4 sm:grid-cols-5">
             <div className="p-2.5 xl:p-5">
               <h5 className="text-sm font-medium uppercase xsm:text-base">
-                Pick Up Point
+                Name
               </h5>
             </div>
             <div className="p-2.5 text-center xl:p-5">
               <h5 className="text-sm font-medium uppercase xsm:text-base">
-                Destination
+                Location
               </h5>
             </div>
             <div className="hidden p-2.5 text-center sm:block xl:p-5">
               <h5 className="text-sm font-medium uppercase xsm:text-base">
-                Price
+                Contact
               </h5>
             </div>
             <div className="hidden p-2.5 text-center sm:block xl:p-5">
               <h5 className="text-sm font-medium uppercase xsm:text-base">
-                Date
+                email
               </h5>
             </div>
             <div className="hidden p-2.5 text-center sm:block xl:p-5">
@@ -75,44 +88,42 @@ export default function ViewCourse() {
               </h5>
             </div>
           </div>
-          {upcommingTrips?.map((trip) => (
+          {company?.map((company: any) => (
             <div
-              key={trip._id}
+              key={company._id}
               className="grid grid-cols-3 border-b border-stroke dark:border-strokedark sm:grid-cols-5"
             >
               <div className="flex items-center justify-center p-2.5 xl:p-5">
-                <p className="text-black dark:text-white">{trip.pickUpPoint}</p>
+                <p className="text-black dark:text-white">{company.name}</p>
               </div>{" "}
               <div className="flex items-center gap-3 p-2.5 xl:p-5">
                 <p className="hidden text-black dark:text-white sm:block">
-                  {trip.destination}
+                  {company.location}
                 </p>
               </div>
               <div className="flex items-center justify-center p-2.5 xl:p-5">
-                <p className="text-meta-3">Rs. {trip?.price}</p>
+                <p className="text-meta-3">{company?.contact}</p>
               </div>
               <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
-                <p className="text-black dark:text-white">
-                  {trip.departureTime}
-                </p>
+                <p className="text-black dark:text-white">{company.email}</p>
               </div>
               <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5 gap-2">
                 <Link
-                  to={`/course-edit/${trip._id}`}
+                  to={`/course-edit/${company._id}`}
                   className="h-10 w-10  bg-meta-5 text-white flex justify-center items-center"
                 >
                   <FaPen />
                 </Link>
-                <Link
-                  to={`/course-content/${trip._id}`}
+                {/* <Link
+                  to={`/course-content/${company._id}`}
                   className="h-10 w-10 text-2xl  bg-meta-5 text-white flex justify-center items-center"
                 >
                   <PiBooksFill />
-                </Link>
+                </Link> */}
                 <button
-                  onClick={() => handleDelete(trip._id)}
+                  onClick={() => handleDelete(company._id)}
                   className="h-10 w-10 bg-red-600 text-white flex justify-center items-center text-lg"
-                  value={trip._id}
+                  value={company._id}
                 >
                   <MdDelete />
                 </button>
