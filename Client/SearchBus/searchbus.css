@@ -11,7 +11,7 @@ body {
     align-items: center;
     background-color: #5257a1f2;
     color: white;
-    padding: 50px 10px 50px 260px;
+    padding: 15px;
     /* Adjust padding to maintain spacing */
 }
 
@@ -21,8 +21,6 @@ body {
     width: 200px;
     background-size: contain;
     background-repeat: no-repeat;
-    align-items: left;
-    margin-left: -400px;
 }
 
 .logo1 {
@@ -70,7 +68,7 @@ body {
     padding: 10px;
     display: flex;
     align-items: center;
-    margin-top: 80px;
+    margin-top: 150px;
     width: 100%;
     box-sizing: border-box;
 }
@@ -150,7 +148,7 @@ th,
 td {
     text-align: left;
     padding: 0.5rem;
-    border-bottom: 1px solid #ddd;
+    border: 3px solid black;
 }
 
 th {
@@ -177,7 +175,7 @@ td:nth-child(7) {
 button {
     background-color: #4CAF50;
     color: white;
-    border: none;
+    border-radius: 20px;
     padding: 0.25rem 0.5rem;
     text-transform: capitalize;
     cursor: pointer;
