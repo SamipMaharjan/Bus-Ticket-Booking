@@ -14,4 +14,10 @@ router
   .get(handleGetAllUpcommingTrips)
   .delete(deleteTrip);
 
+// router
+//   .route("/upcommingTrip")
+//   .post(handleCreateUpcommingTrip)
+//   .get(handleGetAllUpcommingTrips)
+//   .delete(deleteTrip);
+
 module.exports = router;

@@ -1,7 +1,7 @@
 require("dotenv").config();
 const path = require("path");
 const express = require("express");
-const { logger } = require("./middleware/logEvents");
+// const { logger } = require("./middleware/logEvents");
 const errorHandler = require("./middleware/errorHandler");
 const cors = require("cors");
 const corsOptions = require("./config/corsOptions");
@@ -18,7 +18,7 @@ const app = express();
 const PORT = process.env.PORT || 3501;
 
 //custom middleware logger
-app.use(logger);
+// app.use(logger);
 
 app.use(
   cors({
