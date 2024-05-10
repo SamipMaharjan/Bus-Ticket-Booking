@@ -3,7 +3,8 @@ const { verifyJWT } = require("../../middleware/verifyJWT");
 const {
   handleCreateBus,
   handleGetAllBuses,
-  deleteBus
+  deleteBus,
+  updateBus
 } = require("../../controllers/busController");
 
 router
@@ -12,4 +13,6 @@ router
   .get(handleGetAllBuses)
   // .get(handleCompanyBus)
   .delete(deleteBus);
+router.put('/bus/:id', updateBus);
+
 module.exports = router;

@@ -5,6 +5,7 @@ const Company = require("../model/Company");
 const User = require("../model/User");
 const mongoose = require("mongoose");
 const { verifyJWT } = require("../middleware/verifyJWT");
+const { companyLogin } = require("./companyController");
 
 const handleCreateUpcommingTrip = async (req, res) => {
   try {
@@ -113,8 +114,30 @@ const deleteTrip = async (req, res) => {
   }
 };
 
+const updateTrip = async (req, res) => {
+  try {
+    const tripId = req.params.id; // Get company ID from request parameters
+    const updateData = req.body; // Get update data from request body
+
+    const updateObject = { $set: updateData };
+
+    // Find the company by ID and update
+    const updatedTrip = await UpcommingTrips.findByIdAndUpdate(tripId, updateObject, { new: true });
+
+    if (!updatedTrip) {
+      return res.status(404).json({ success: false, message: 'Trip not found' });
+    }
+
+    return res.status(200).json({ success: true, message: 'Trip updated successfully', trip: updatedTrip });
+  } catch (error) {
+    console.error('Error updating Trip:', error);
+    return res.status(500).json({ success: false, message: 'Internal server error' });
+  }
+}
+
 module.exports = {
   handleCreateUpcommingTrip,
   handleGetAllUpcommingTrips,
   deleteTrip,
+  updateTrip
 };

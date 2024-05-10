@@ -205,4 +205,25 @@ const getDetails = async (req, res) => {
   });
 };
 
-module.exports = { getDetails, companyLogin, handleGetAllCompanies, deleteCompany, addBus, handleGetOwnBus, addUpcommingTrip, handleGetOwnUpcommingTrip };
+const updateCompany = async (req, res) => {
+  try {
+    const companyId = req.params.id; // Get company ID from request parameters
+    const updateData = req.body; // Get update data from request body
+
+    const updateObject = { $set: updateData };
+
+    // Find the company by ID and update
+    const updatedCompany = await Company.findByIdAndUpdate(companyId, updateObject, { new: true });
+
+    if (!updatedCompany) {
+      return res.status(404).json({ success: false, message: 'Company not found' });
+    }
+
+    return res.status(200).json({ success: true, message: 'Company updated successfully', company: updatedCompany });
+  } catch (error) {
+    console.error('Error updating company:', error);
+    return res.status(500).json({ success: false, message: 'Internal server error' });
+  }
+}
+
+module.exports = { updateCompany ,getDetails, companyLogin, handleGetAllCompanies, deleteCompany, addBus, handleGetOwnBus, addUpcommingTrip, handleGetOwnUpcommingTrip };

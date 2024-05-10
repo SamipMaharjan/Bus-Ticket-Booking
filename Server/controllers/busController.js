@@ -113,17 +113,23 @@ const deleteBus = async (req, res) => {
 };
 
 const updateBus = async (req, res) => {
-  const updatedBus = await Bus.findOneAndUpdate(
-    { _id: busId }, // Filter: Identify the bus document to update
-    { $set: { fieldToUpdate: newValue } }, // Update: Specify the fields to update and their new values
-    { new: true } // Options: Return the modified document after update
-  );
+  try {
+    const busId = req.params.id; // Get company ID from request parameters
+    const updateData = req.body; // Get update data from request body
 
-  // Check if the bus was found and updated successfully
-  if (updatedBus) {
-    console.log("Bus updated successfully:", updatedBus);
-  } else {
-    console.log("Bus not found or not updated.");
+    const updateObject = { $set: updateData };
+
+    // Find the company by ID and update
+    const updatedBus = await Bus.findByIdAndUpdate(busId, updateObject, { new: true });
+
+    if (!updatedBus) {
+      return res.status(404).json({ success: false, message: 'Bus not found' });
+    }
+
+    return res.status(200).json({ success: true, message: 'Bus updated successfully', bus: updatedBus });
+  } catch (error) {
+    console.error('Error updating Bus:', error);
+    return res.status(500).json({ success: false, message: 'Internal server error' });
   }
-};
-module.exports = { handleCreateBus, handleGetAllBuses, deleteBus };
+}
+module.exports = { handleCreateBus, handleGetAllBuses, deleteBus, updateBus };

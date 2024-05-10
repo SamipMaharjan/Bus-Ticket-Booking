@@ -3,6 +3,7 @@ const {
   handleCreateUpcommingTrip,
   handleGetAllUpcommingTrips,
   deleteTrip,
+  updateTrip
 } = require("../../controllers/upcommingTripsController");
 const { verifyJWT } = require("../../middleware/verifyJWT");
 const verifyRoles = require("../../middleware/verifyRoles");
@@ -19,5 +20,6 @@ router
 //   .post(handleCreateUpcommingTrip)
 //   .get(handleGetAllUpcommingTrips)
 //   .delete(deleteTrip);
+router.put('/upcommingTrip/:id', updateTrip);
 
 module.exports = router;

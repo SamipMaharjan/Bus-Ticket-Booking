@@ -7,6 +7,7 @@ const {
   handleGetAllUsers,
   deleteUser,
   bookTrip,
+  updateUser
 } = require("../../controllers/userController");
 
 router.route("/users").get(handleGetAllUsers).delete(deleteUser);
@@ -14,5 +15,7 @@ router.route("/users").get(handleGetAllUsers).delete(deleteUser);
 router
   .route("/users/bookTrip/:id")
   .put(verifyJWT, verifyRoles(ROLES_LIST.Passenger), bookTrip);
+
+router.put('/users/:id', updateUser);
 
 module.exports = router;

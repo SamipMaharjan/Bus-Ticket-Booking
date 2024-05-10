@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { verifyJWT } = require("../../middleware/verifyJWT");
 const {
+  updateCompany,
   getDetails,
   companyLogin,
   handleGetAllCompanies,
@@ -25,5 +26,7 @@ router
   .post(addUpcommingTrip);
 
 router.route("/user").get(getDetails);
+
+router.put('/:id', updateCompany);
 
 module.exports = router;

@@ -1,4 +1,5 @@
 const UpcommingTrips = require("../model/UpcommingTrips");
+const User = require("../model/User");
 const Users = require("../model/User");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
@@ -96,4 +97,26 @@ const bookTrip = async (req, res) => {
     return res.status(500).json({ success: false, message: "Internal Server Error"})
   }
 };
-module.exports = { handleGetAllUsers, deleteUser, bookTrip };
+
+const updateUser = async (req, res) => {
+  try {
+    const userId = req.params.id; // Get company ID from request parameters
+    const updateData = req.body; // Get update data from request body
+
+    const updateObject = { $set: updateData };
+
+    // Find the company by ID and update
+    const updatedUser = await User.findByIdAndUpdate(userId, updateObject, { new: true });
+
+    if (!updatedUser) {
+      return res.status(404).json({ success: false, message: 'User not found' });
+    }
+
+    return res.status(200).json({ success: true, message: 'User updated successfully', user: updatedUser });
+  } catch (error) {
+    console.error('Error updating user:', error);
+    return res.status(500).json({ success: false, message: 'Internal server error' });
+  }
+}
+
+module.exports = { handleGetAllUsers, deleteUser, bookTrip, updateUser };
