@@ -155,7 +155,7 @@ const updateBookedTrips = async (req, res) => {
     }
 
     // Find the index of the trip in the user's booked_trips array
-    const tripIndex = user.booked_trips.findIndex(trip => trip._id === tripId);
+    const tripIndex = user.booked_trips.findIndex(trips => trips._id.toString() === tripId);
 
     if (tripIndex === -1) {
       return res.status(404).json({ success: false, message: 'Trip not found in user\'s booked trips' });

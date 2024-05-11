@@ -21,7 +21,7 @@ router
   .delete(verifyJWT, verifyRoles(ROLES_LIST.Passenger), deleteBookedTrips)
   .put(verifyJWT, verifyRoles(ROLES_LIST.Passenger), bookTrip);
 
-router.put('/users/updateTrip/:id',verifyJWT, verifyRoles(ROLES_LIST.Passenger), updateBookedTrips);  
+router.route('/users/updateTrip/:id').put(verifyJWT, verifyRoles(ROLES_LIST.Passenger), updateBookedTrips);  
   
 router.put('/users/:id', updateUser);
 
