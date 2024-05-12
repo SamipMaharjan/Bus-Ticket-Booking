@@ -35,4 +35,7 @@ const upcommingTripsSchema = new Schema({
   },
 });
 
+// Create text index
+upcommingTripsSchema.index({ destination: 'text', pickUpPoint: 'text' });
+
 module.exports = mongoose.model("UpcommingTrips", upcommingTripsSchema);

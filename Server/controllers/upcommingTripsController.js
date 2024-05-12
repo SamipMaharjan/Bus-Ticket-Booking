@@ -135,9 +135,57 @@ const updateTrip = async (req, res) => {
   }
 }
 
+const getUpcommingTrip = async (req, res) => {
+  try {
+    const tripId = req.params.id;
+    const trip = await UpcommingTrips.findById(tripId).exec();
+    if (!trip) {
+      return res.status(404).json({ success: false, message: 'Trip not found' });
+    }
+    return res.status(200).json({ success: true, trip });  
+  } catch (err) {
+    console.error(err);
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal Server Error" });
+  }
+};
+
+const searchTrips = async (req, res) => {
+  try {
+    const { destination, pickUpPoint, priceMin, priceMax } = req.query;
+
+    // Define the search query object based on the provided parameters
+    const queryObject = {};
+    if (destination) {
+      queryObject.destination = { $regex: destination, $options: 'i' };
+    }
+    if (pickUpPoint) {
+      queryObject.pickUpPoint = { $regex: pickUpPoint, $options: 'i' };
+    }
+    if (priceMin && priceMax) {
+      queryObject.price = { $gte: parseInt(priceMin), $lte: parseInt(priceMax) };
+    } else if (priceMin) {
+      queryObject.price = { $gte: parseInt(priceMin) };
+    } else if (priceMax) {
+      queryObject.price = { $lte: parseInt(priceMax) };
+    }
+
+    // Search for trips based on the constructed query object
+    const trips = await UpcommingTrips.find(queryObject).exec();
+
+    return res.status(200).json({ success: true, trips });
+  } catch (error) {
+    console.error('Error searching trips:', error);
+    res.status(500).json({ success: false, message: 'Internal server error' });
+  }
+};
+
 module.exports = {
   handleCreateUpcommingTrip,
   handleGetAllUpcommingTrips,
   deleteTrip,
-  updateTrip
+  updateTrip,
+  getUpcommingTrip,
+  searchTrips
 };
