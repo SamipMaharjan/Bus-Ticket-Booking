@@ -3,6 +3,7 @@ const User = require("../model/User");
 const Users = require("../model/User");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
+const crypto = require("crypto");
 
 const handleGetAllUsers = async (req, res) => {
   try {
@@ -37,37 +38,66 @@ const deleteUser = async (req, res) => {
 const bookTrip = async (req, res) => {
   try {
     const tripId = req.params.id;
+    const { return_url, website_url } = req.body;
     const result = await UpcommingTrips.findOne({ _id: tripId }).exec();
-    // if (result) {
-    //   console.log("result", result);
-    //   return res.json({ message: "done" });
-    // }
-    // console.log("result nll", result);
-    // return res.json({ message: "nnothing" });
-    if (result) {
-      const user = await Users.findOne({ email: req.email }).exec();
-      console.log("user", user);
-      // Update a single document
-      // User.updateOne(
-      //   // { name: user },
-      //   // { $set: { name: "NewCompany" } },
-      //   (err, result) => {
-      //     if (err) {
-      //       console.error(err);
-      //     } else {
-      //       console.log("Updated document:", result);
-      //     }
-      //   }
-      // );
-      user.booked_trips.push(result);
-      user.save();
-      return res
-        .status(200)
-        .json({ message: "successfully updated booked Trips" });
+
+    if (!return_url && !website_url)
+      res
+        .status(400)
+        .json({ message: "return_url and website_url are required." });
+    else if (!result)
+      res.status(400).json({ message: "Upcomming trip does not exist" });
+
+    const amount = result.price;
+
+    const payload = {
+      return_url,
+      website_url,
+      amount,
+      purchase_order_id: crypto.randomBytes(16).toString("hex"),
+      purchase_order_name: result.pickUpPoint + "_to_" + result.destination,
+    };
+
+    const user = await Users.findOne({ email: req.email }).exec();
+    console.log("user", user);
+
+    try {
+      console.log("payload", payload);
+      const khaltiResponse = await fetch(
+        "https://a.khalti.com/api/v2/epayment/initiate/",
+        {
+          method: "POST",
+          body: JSON.stringify(payload),
+          headers: {
+            Authorization: `Key ${process.env.KHALTI_SECRET_KEY}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (khaltiResponse.ok) {
+        const resData = await khaltiResponse.json();
+        console.log("khalti response", resData);
+
+        user.booked_trips.push(result);
+        const userSaved = await user.save();
+        console.log("usersaved", userSaved);
+
+        return res.status(200).json(resData);
+      }
+    } catch (err) {
+      console.error("Khalti Payment Err:", err);
+      return res.status(500).json({ message: "Internal server error." });
     }
+
+    // return res
+    //   .status(200)
+    //   .json({ message: "successfully updated booked Trips" });
   } catch (err) {
     console.error(err);
-    return res.status(500).json({ success: false, message: "Internal Server Error"})
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal Server Error" });
   }
 };
 
@@ -79,18 +109,28 @@ const updateUser = async (req, res) => {
     const updateObject = { $set: updateData };
 
     // Find the company by ID and update
-    const updatedUser = await User.findByIdAndUpdate(userId, updateObject, { new: true });
+    const updatedUser = await User.findByIdAndUpdate(userId, updateObject, {
+      new: true,
+    });
 
     if (!updatedUser) {
-      return res.status(404).json({ success: false, message: 'User not found' });
+      return res
+        .status(404)
+        .json({ success: false, message: "User not found" });
     }
 
-    return res.status(200).json({ success: true, message: 'User updated successfully', user: updatedUser });
+    return res.status(200).json({
+      success: true,
+      message: "User updated successfully",
+      user: updatedUser,
+    });
   } catch (error) {
-    console.error('Error updating user:', error);
-    return res.status(500).json({ success: false, message: 'Internal server error' });
+    console.error("Error updating user:", error);
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal server error" });
   }
-}
+};
 
 const viewBookedTrips = async (req, res) => {
   try {
@@ -98,18 +138,21 @@ const viewBookedTrips = async (req, res) => {
     const user = await User.findById(userId);
 
     if (!user) {
-      return res.status(404).json({ success: false, message: 'User not found' });
+      return res
+        .status(404)
+        .json({ success: false, message: "User not found" });
     }
 
     const bookedTrips = user.booked_trips;
 
     return res.status(200).json({ success: true, bookedTrips });
-
   } catch (error) {
     console.error(err);
-    return res.status(500).json({ success: false, message: "Internal Server Error"})
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal Server Error" });
   }
-}
+};
 
 const deleteBookedTrips = async (req, res) => {
   try {
@@ -117,14 +160,15 @@ const deleteBookedTrips = async (req, res) => {
     const result = await UpcommingTrips.findOne({ _id: tripId }).exec();
 
     if (!result) {
-      return res.status(404).json({ success: false, message: 'Trip not found' });
+      return res
+        .status(404)
+        .json({ success: false, message: "Trip not found" });
     }
 
     if (result) {
-      
       const user = await Users.findOne({ email: req.email }).exec();
       console.log("user", user);
-          
+
       user.booked_trips.pull(tripId); // Remove trip with given ID
       const bookedTrips = user.booked_trips;
       await user.save();
@@ -132,9 +176,11 @@ const deleteBookedTrips = async (req, res) => {
     }
   } catch (error) {
     console.error(error);
-    return res.status(500).json({ success: false, message: "Internal Server Error"})
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal Server Error" });
   }
-}
+};
 
 const updateBookedTrips = async (req, res) => {
   try {
@@ -142,38 +188,54 @@ const updateBookedTrips = async (req, res) => {
     const updatedTripData = req.body;
     // Find the trip by its ID
     const trip = await UpcommingTrips.findById(tripId);
-    
+
     if (!trip) {
-      return res.status(404).json({ success: false, message: 'Trip not found' });
+      return res
+        .status(404)
+        .json({ success: false, message: "Trip not found" });
     }
 
     // Find the user by email
     const user = await Users.findOne({ email: req.email });
 
     if (!user) {
-      return res.status(404).json({ success: false, message: 'User not found' });
+      return res
+        .status(404)
+        .json({ success: false, message: "User not found" });
     }
 
     // Find the index of the trip in the user's booked_trips array
-    const tripIndex = user.booked_trips.findIndex(trips => trips._id.toString() === tripId);
+    const tripIndex = user.booked_trips.findIndex(
+      (trips) => trips._id.toString() === tripId
+    );
 
     if (tripIndex === -1) {
-      return res.status(404).json({ success: false, message: 'Trip not found in user\'s booked trips' });
+      return res.status(404).json({
+        success: false,
+        message: "Trip not found in user's booked trips",
+      });
     }
 
     // Update the trip with the new data
-    user.booked_trips[tripIndex] = { ...user.booked_trips[tripIndex], ...updatedTripData };
+    user.booked_trips[tripIndex] = {
+      ...user.booked_trips[tripIndex],
+      ...updatedTripData,
+    };
 
     // Save the updated user
     await user.save();
 
-    return res.status(200).json({ success: true, message: 'Trip updated successfully', bookedTrips: user.booked_trips });
+    return res.status(200).json({
+      success: true,
+      message: "Trip updated successfully",
+      bookedTrips: user.booked_trips,
+    });
     // if (!result) {
     //   return res.status(404).json({ success: false, message: 'Trip not found' });
     // }
     // const user = await Users.findOne({ email: req.email }).exec();
     // console.log("user", user);
-    
+
     // // const updateData = req.body; // Get update data from request body
 
     // // const updateObject = { $set: updateData };
@@ -186,7 +248,7 @@ const updateBookedTrips = async (req, res) => {
     // if (tripIndex === -1) {
     //   return res.status(404).json({ success: false, message: 'Trip not found' });
     // }
-        
+
     // const trip = user.booked_trips[tripIndex];
     // const bookedTrips = user.booked_trips;
     // user.booked_trips[tripIndex] = { ...user.booked_trips[tripIndex], ...updatedTrip };
@@ -195,8 +257,18 @@ const updateBookedTrips = async (req, res) => {
     // return res.status(200).json({ success: true, bookedTrips });
   } catch (error) {
     console.error(error);
-    return res.status(500).json({ success: false, message: "Internal Server Error"})
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal Server Error" });
   }
-}
+};
 
-module.exports = { handleGetAllUsers, deleteUser, bookTrip, updateUser, viewBookedTrips, deleteBookedTrips, updateBookedTrips };
+module.exports = {
+  handleGetAllUsers,
+  deleteUser,
+  bookTrip,
+  updateUser,
+  viewBookedTrips,
+  deleteBookedTrips,
+  updateBookedTrips,
+};

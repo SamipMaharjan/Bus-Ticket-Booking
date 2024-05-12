@@ -21,17 +21,17 @@ const PORT = process.env.PORT || 3501;
 // app.use(logger);
 
 app.use(
-    cors({
-        origin: [
-            "http://www.yoursite.com",
-            "http://127.0.0.1:5500",
-            "http://127.0.0.1:5502",
-            "http://127.0.0.1:5501",
-            "http://localhost:3501",
-            "http://localhost:5174",
-        ],
-        credentials: true,
-    })
+  cors({
+    origin: [
+      "http://www.yoursite.com",
+      "http://127.0.0.1:5500",
+      "http://127.0.0.1:5502",
+      "http://127.0.0.1:5501",
+      "http://localhost:3501",
+      "http://localhost:5174",
+    ],
+    credentials: true,
+  })
 );
 app.use(cookieParser());
 
@@ -59,24 +59,26 @@ app.use(require("./routes/api/users"));
 app.use(require("./routes/api/bus"));
 
 app.use(require("./routes/api/admin"));
+app.use(require("./routes/api/khalti"));
+
 app.use(verifyRoles);
 app.use(verifyJWT);
 app.use("/employees", require("./routes/api/employees"));
 
 app.all("*", (req, res) => {
-    res.status(404);
-    if (req.accepts("html")) {
-        res.sendFile(path.join(__dirname, "views", "404.html"));
-    } else if (req.accepts("json")) {
-        res.json({ error: "404 Not Found" });
-    } else {
-        res.type("txt").send("404 Not Found");
-    }
+  res.status(404);
+  if (req.accepts("html")) {
+    res.sendFile(path.join(__dirname, "views", "404.html"));
+  } else if (req.accepts("json")) {
+    res.json({ error: "404 Not Found" });
+  } else {
+    res.type("txt").send("404 Not Found");
+  }
 });
 
 app.use(errorHandler);
 
 mongoose.connection.once("open", () => {
-    console.log("connected to mongoDB");
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+  console.log("connected to mongoDB");
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 });
