@@ -1,5 +1,8 @@
+import { GlobalContext } from "@/Context/GlobalContext";
+import { baseUrl } from "@/app/api/apiSlice";
 import CookieHelper from "@/helpers/CookieHelper";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
 // import UserOne from "../images/user/user-01.png";
@@ -7,6 +10,22 @@ import { Link, useNavigate } from "react-router-dom";
 const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const navigate = useNavigate();
+
+  const { profileData, setProfileData } = useContext(GlobalContext);
+  console.log("setProfileData", setProfileData);
+
+  useEffect(() => {
+    fetch(`${baseUrl}/company/user`, {
+      method: "GET",
+      headers: { Authorization: `Bearer ${CookieHelper.getCookie("token")}` },
+    })
+      .then((res) => res.json())
+      .then((data: any) => {
+        console.log("data", data);
+        setProfileData(data?.success);
+      });
+  }, []);
+  // const userDetail
 
   const trigger = useRef<any>(null);
   const dropdown = useRef<any>(null);
@@ -47,7 +66,7 @@ const DropdownUser = () => {
       >
         <span className="hidden text-right lg:block">
           <span className="block text-sm font-medium text-black dark:text-white">
-            UserName
+            {profileData?.name || "username NA"}
           </span>
           {/* <span className="block text-xs">UX Designer</span> */}
         </span>

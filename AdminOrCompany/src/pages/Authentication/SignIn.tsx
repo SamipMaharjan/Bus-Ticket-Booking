@@ -1,11 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 
-import Elearning from "../../images/icon/Elearning.png";
+import Bus_Yatri from "../../images/icon/Bus_Yatri.webp";
 import { useForm } from "react-hook-form";
 import { useLoginMutation } from "../../app/auth/authApiSlice";
 import setCookie from "../../helpers/setCookie";
 import CookieHelper from "@/helpers/CookieHelper";
+import { baseUrl } from "@/app/api/apiSlice";
 
 const SignIn = () => {
   const {
@@ -24,12 +25,19 @@ const SignIn = () => {
   const submitUserData = (data: LoginPayload) => {
     // console.log("userdata", data);
     CookieHelper.deleteAllCookies();
-    login(data)
-      .unwrap()
-      .then((res: any) => {
-        if (res.token) {
-          console.log("res.asjkfk");
-          setCookie("token", res.token, 5);
+    // login(data)
+    //   .unwrap()
+    console.log("submituserdata");
+    fetch(`${baseUrl}/company`, {
+      method: "POST",
+      body: JSON.stringify({ ...data }),
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((res) => res.json())
+      .then((resData: any) => {
+        if (resData?.token) {
+          console.log("resData.asjkfk");
+          setCookie("token", resData.token, 5);
           navigate("/");
         }
       })
@@ -45,7 +53,7 @@ const SignIn = () => {
           <div className="hidden w-full xl:block xl:w-1/2">
             <div className="py-17.5 px-26 text-center">
               <Link className="mb-5.5 inline-block" to="/">
-                <img className="dark:hidden" src={Elearning} alt="Logo" />
+                <img className="dark:hidden" src={Bus_Yatri} alt="Logo" />
               </Link>
 
               <p className="2xl:px-20">
@@ -182,7 +190,7 @@ const SignIn = () => {
             <div className="w-full p-4 sm:p-12.5 xl:p-17.5">
               <span className="mb-1.5 block font-medium">Start for free</span>
               <h2 className="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
-                Sign In to E-learning Admin
+                Sign In to Bus-Yatri Admin
               </h2>
 
               <form onSubmit={handleSubmit(submitUserData)}>
