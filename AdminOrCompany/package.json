@@ -1,5 +1,5 @@
 {
-  "name": "elearning",
+  "name": "Bus_Yatri",
   "private": true,
   "version": "1.0.5",
   "type": "module",
@@ -9,9 +9,9 @@
     "preview": "vite preview"
   },
   "author": {
-    "name": "ELearning",
-    "email": "hello@ELearning.com",
-    "url": "https://ELearning.com"
+    "name": "Bus_Yatri",
+    "email": "hello@Bus_Yatri.com",
+    "url": "https://Bus_Yatri.com"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.8.2",

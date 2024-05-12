@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import Elearning from "../../images/icon/Elearning.png";
+import Bus_Yatri from "../../images/icon/Bus_Yatri.webp";
 
 import { useForm } from "react-hook-form";
 import { useSignupMutation } from "../../app/auth/authApiSlice";
@@ -38,10 +38,10 @@ const SignUp = () => {
               <Link className="mb-5.5 inline-block" to="/">
                 <img
                   className="hidden dark:block w-50"
-                  src={Elearning}
+                  src={Bus_Yatri}
                   alt="Logo"
                 />
-                <img className="dark:hidden" src={Elearning} alt="Logo" />
+                <img className="dark:hidden" src={Bus_Yatri} alt="Logo" />
               </Link>
               <p className="2xl:px-20">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit

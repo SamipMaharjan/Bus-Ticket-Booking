@@ -8,6 +8,8 @@ const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const navigate = useNavigate();
 
+  // const userDetail
+
   const trigger = useRef<any>(null);
   const dropdown = useRef<any>(null);
 

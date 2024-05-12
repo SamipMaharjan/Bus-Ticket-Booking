@@ -1,6 +1,6 @@
 import { baseUrl } from "@/app/api/apiSlice";
 import Breadcrumb from "../../components/Breadcrumb";
-import CoverOne from "@/images/icon/Elearning.png";
+import CoverOne from "@/images/icon/Bus_Yatri.webp";
 import CookieHelper from "@/helpers/CookieHelper";
 import toast from "react-hot-toast";
 import { useGetCurrentUserQuery } from "@/app/users/usersApiSlice";

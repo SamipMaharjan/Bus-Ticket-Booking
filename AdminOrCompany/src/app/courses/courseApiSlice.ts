@@ -73,16 +73,33 @@ export const courseApiSlice = apiSlice.injectEndpoints({
       }),
       providesTags: ["company"],
     }),
+    getAllBus: builder.query<any, null>({
+      query: () => ({
+        url: `/bus`,
+        method: "GET",
+      }),
+      providesTags: ["bus"],
+    }),
+    deleteBus: builder.mutation<any, { busId: string }>({
+      query: (data) => ({
+        url: `/bus`,
+        body: { id: data.busId },
+        method: "DELETE",
+      }),
+      invalidatesTags: ["bus"],
+    }),
   }),
 });
 export const {
   useCreateCourseMutation,
   useUpdateCourseMutation,
+  useGetAllBusQuery,
   useDeleteCourseMutation,
   useGetAllCoursesQuery,
   useGetCourseByIdQuery,
   useUpdateCourseContentMutation,
   useGetEveryUpTripQuery,
+  useDeleteBusMutation,
   useDeleteCompanyMutation,
   useGetAllCompanyQuery,
 } = courseApiSlice;

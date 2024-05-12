@@ -8,8 +8,13 @@ import { baseUrl } from "@/app/api/apiSlice";
 import CookieHelper from "@/helpers/CookieHelper";
 
 // import { useCreateCourseMutation } from "@/app/courses/courseApiSlice";
-
-const CreateCourse = () => {
+interface Bus {
+  upcommingTripId: string;
+  companyId: string;
+  name: string;
+  number: string;
+}
+const CreateBus = () => {
   const {
     register,
     reset,
@@ -17,7 +22,7 @@ const CreateCourse = () => {
     setValue,
     getValues,
     formState: { errors },
-  } = useForm<any>();
+  } = useForm<Bus>();
 
   const [postCourse, { isLoading: isCourseSubmit }] = useCreateCourseMutation();
 
@@ -57,56 +62,58 @@ const CreateCourse = () => {
             <div className="flex flex-col gap-5.5">
               <div>
                 <label className="mb-3 block text-black dark:text-white">
-                  Driver ID:
+                  Upcoming trip ID:
                 </label>
                 <input
                   type="text"
                   placeholder="title"
                   className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
-                  {...register("driverId", { required: "driverId requried" })}
+                  {...register("upcommingTripId", {
+                    required: "upcommingTripId requried",
+                  })}
                 />
                 <span className="text-[#ff0000]  text-xs">
-                  {errors?.driverId?.message}
+                  {errors?.upcommingTripId?.message}
                 </span>
               </div>
             </div>
             <div className="flex flex-col gap-5.5">
               <div>
                 <label className="mb-3 block text-black dark:text-white">
-                  Pick Up Point:
+                  Bus Name:
                 </label>
                 <input
                   type="text"
                   placeholder="title"
                   className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
-                  {...register("pickUpPoint", {
-                    required: "pickUpPoint requried",
+                  {...register("name", {
+                    required: "name requried",
                   })}
                 />
                 <span className="text-[#ff0000]  text-xs">
-                  {errors?.pickUpPoint?.message}
+                  {errors?.name?.message}
                 </span>
               </div>
             </div>
             <div className="flex flex-col gap-5.5">
               <div>
                 <label className="mb-3 block text-black dark:text-white">
-                  Destination:
+                  Bus number:
                 </label>
                 <input
                   type="text"
                   placeholder="title"
                   className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
-                  {...register("destination", {
-                    required: "destination requried",
+                  {...register("number", {
+                    required: "number requried",
                   })}
                 />
                 <span className="text-[#ff0000]  text-xs">
-                  {errors?.destination?.message}
+                  {errors?.number?.message}
                 </span>
               </div>
             </div>
-            <div className="flex flex-col gap-5.5">
+            {/* <div className="flex flex-col gap-5.5">
               <div>
                 <label className="mb-3 block text-black dark:text-white">
                   Departure Time:
@@ -142,7 +149,7 @@ const CreateCourse = () => {
               <span className="text-[#ff0000] text-xs">
                 {errors?.price?.message}
               </span>
-            </div>
+            </div> */}
           </div>
         </div>
 
@@ -160,4 +167,4 @@ const CreateCourse = () => {
   );
 };
 
-export default CreateCourse;
+export default CreateBus;
