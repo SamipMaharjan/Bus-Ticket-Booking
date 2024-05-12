@@ -31,16 +31,16 @@ const handleCreateBus = async (req, res) => {
       });
     }
     // Check if DriverId exists in the database
-    const driverExists = await User.find({
-      _id: driverId,
-      roles: { Driver: 1984 },
-    }).exec();
-    if (!driverExists) {
-      return res.status(404).json({
-        success: false,
-        message: "Driver with the specified ID does not exist",
-      });
-    }
+    // const driverExists = await User.find({
+    //   _id: driverId,
+    //   roles: { Driver: 1984 },
+    // }).exec();
+    // if (!driverExists) {
+    //   return res.status(404).json({
+    //     success: false,
+    //     message: "Driver with the specified ID does not exist",
+    //   });
+    // }
 
     const validation = busValidation.safeParse(req.body);
 
@@ -120,16 +120,26 @@ const updateBus = async (req, res) => {
     const updateObject = { $set: updateData };
 
     // Find the company by ID and update
-    const updatedBus = await Bus.findByIdAndUpdate(busId, updateObject, { new: true });
+    const updatedBus = await Bus.findByIdAndUpdate(busId, updateObject, {
+      new: true,
+    });
 
     if (!updatedBus) {
-      return res.status(404).json({ success: false, message: 'Bus not found' });
+      return res.status(404).json({ success: false, message: "Bus not found" });
     }
 
-    return res.status(200).json({ success: true, message: 'Bus updated successfully', bus: updatedBus });
+    return res
+      .status(200)
+      .json({
+        success: true,
+        message: "Bus updated successfully",
+        bus: updatedBus,
+      });
   } catch (error) {
-    console.error('Error updating Bus:', error);
-    return res.status(500).json({ success: false, message: 'Internal server error' });
+    console.error("Error updating Bus:", error);
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal server error" });
   }
-}
+};
 module.exports = { handleCreateBus, handleGetAllBuses, deleteBus, updateBus };

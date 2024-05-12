@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   useDeleteBusMutation,
   useDeleteCourseMutation,
@@ -15,6 +15,7 @@ import CookieHelper from "@/helpers/CookieHelper";
 import { useState } from "react";
 
 export default function ViewBus() {
+  const navigate = useNavigate();
   const { data: busData } = useGetAllBusQuery(null);
   // const [busRes, setBusRes] = useState<any>s();
 
@@ -84,13 +85,16 @@ export default function ViewBus() {
                 <p className="text-meta-3"> {bus?.number}</p>
               </div>
               <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5 gap-2">
-                {/* <Link
-                  to={`/course-edit/${bus._id}`}
+                <button
+                  onClick={() =>
+                    navigate(`/bus/edit/${bus._id}`, { state: bus })
+                  }
+                  // to={`/bus/edit/${bus._id}`}
                   className="h-10 w-10  bg-meta-5 text-white flex justify-center items-center"
                 >
                   <FaPen />
-                </Link>
-                <Link
+                </button>
+                {/* <Link
                   to={`/course-content/${bus._id}`}
                   className="h-10 w-10 text-2xl  bg-meta-5 text-white flex justify-center items-center"
                 >

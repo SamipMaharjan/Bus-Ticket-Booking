@@ -6,6 +6,8 @@ import Loader from "../../common/Loader";
 import toast, { Toaster } from "react-hot-toast";
 import { baseUrl } from "@/app/api/apiSlice";
 import CookieHelper from "@/helpers/CookieHelper";
+import { GlobalContext } from "@/Context/GlobalContext";
+import { useContext } from "react";
 
 // import { useCreateCourseMutation } from "@/app/courses/courseApiSlice";
 interface Bus {
@@ -24,28 +26,31 @@ const CreateBus = () => {
     formState: { errors },
   } = useForm<Bus>();
 
+  const { profileData } = useContext(GlobalContext);
+
   const [postCourse, { isLoading: isCourseSubmit }] = useCreateCourseMutation();
 
   function courseSubmit(data: any) {
-    // postCourse(data)
-    //   .unwrap()
-    //   .then((res) => {
-    //     console.log("res", res);
-    //     toast.success("Course Submitted Successfully.", {
-    //       position: "top-right",
-    //     });
-    //   })
-    //   .catch((err) => toast.error(`Error: ${err.data.error}`));
-    data = { ...data, price: parseInt(data.price) };
+    data = {
+      ...data,
+      price: parseInt(data.price),
+      companyId: profileData?._id,
+    };
     console.log("JSON.stringify(data)", JSON.stringify(data));
-    fetch(`${baseUrl}/upcommingTrip`, {
+    fetch(`${baseUrl}/bus`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
         Authorization: `Bearer ${CookieHelper.getCookie("token")}`,
         "Content-Type": "application/json",
       },
-    });
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success)
+          toast.success(data.message || "Successsfully created Bus");
+      })
+      .catch((err) => toast.error("Something went wrong"));
     // console.log("data", data);
   }
 

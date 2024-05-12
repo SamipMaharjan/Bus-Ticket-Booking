@@ -12,7 +12,7 @@ export const courseApiSlice = apiSlice.injectEndpoints({
     }),
     updateCourse: builder.mutation<any, Course>({
       query: (data) => ({
-        url: `/course/${data.id}`,
+        url: `/upcommingTrip/${data.id}`,
         body: { ...data },
         method: "PUT",
       }),
@@ -88,11 +88,20 @@ export const courseApiSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ["bus"],
     }),
+    updateUpcommingTrips: builder.mutation<any, any>({
+      query: (data: any) => ({
+        url: `/upcommingTrip/${data._id}`,
+        body: { ...data },
+        method: "PUT",
+      }),
+      invalidatesTags: ["Courses"],
+    }),
   }),
 });
 export const {
   useCreateCourseMutation,
   useUpdateCourseMutation,
+  useUpdateUpcommingTripsMutation,
   useGetAllBusQuery,
   useDeleteCourseMutation,
   useGetAllCoursesQuery,

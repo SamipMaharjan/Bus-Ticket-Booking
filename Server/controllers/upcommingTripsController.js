@@ -30,16 +30,16 @@ const handleCreateUpcommingTrip = async (req, res) => {
     }
     console.log("2 ", driverId);
     // Check if DriverId exists in the database
-    const driverExists = await User.find({
-      _id: driverId,
-      roles: { Driver: 1984 },
-    }).exec();
-    if (!driverExists) {
-      return res.status(404).json({
-        success: false,
-        message: "Driver with the specified ID does not exist",
-      });
-    }
+    // const driverExists = await User.find({
+    //   _id: driverId,
+    //   roles: { Driver: 1984 },
+    // }).exec();
+    // if (!driverExists) {
+    //   return res.status(404).json({
+    //     success: false,
+    //     message: "Driver with the specified ID does not exist",
+    //   });
+    // }
 
     const validation = upcommingTripsValidation.safeParse(req.body);
 
@@ -122,27 +122,43 @@ const updateTrip = async (req, res) => {
     const updateObject = { $set: updateData };
 
     // Find the company by ID and update
-    const updatedTrip = await UpcommingTrips.findByIdAndUpdate(tripId, updateObject, { new: true });
+    const updatedTrip = await UpcommingTrips.findByIdAndUpdate(
+      tripId,
+      updateObject,
+      { new: true }
+    );
 
     if (!updatedTrip) {
-      return res.status(404).json({ success: false, message: 'Trip not found' });
+      return res
+        .status(404)
+        .json({ success: false, message: "Trip not found" });
     }
 
-    return res.status(200).json({ success: true, message: 'Trip updated successfully', trip: updatedTrip });
+    return res
+      .status(200)
+      .json({
+        success: true,
+        message: "Trip updated successfully",
+        trip: updatedTrip,
+      });
   } catch (error) {
-    console.error('Error updating Trip:', error);
-    return res.status(500).json({ success: false, message: 'Internal server error' });
+    console.error("Error updating Trip:", error);
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal server error" });
   }
-}
+};
 
 const getUpcommingTrip = async (req, res) => {
   try {
     const tripId = req.params.id;
     const trip = await UpcommingTrips.findById(tripId).exec();
     if (!trip) {
-      return res.status(404).json({ success: false, message: 'Trip not found' });
+      return res
+        .status(404)
+        .json({ success: false, message: "Trip not found" });
     }
-    return res.status(200).json({ success: true, trip });  
+    return res.status(200).json({ success: true, trip });
   } catch (err) {
     console.error(err);
     return res
@@ -158,13 +174,16 @@ const searchTrips = async (req, res) => {
     // Define the search query object based on the provided parameters
     const queryObject = {};
     if (destination) {
-      queryObject.destination = { $regex: destination, $options: 'i' };
+      queryObject.destination = { $regex: destination, $options: "i" };
     }
     if (pickUpPoint) {
-      queryObject.pickUpPoint = { $regex: pickUpPoint, $options: 'i' };
+      queryObject.pickUpPoint = { $regex: pickUpPoint, $options: "i" };
     }
     if (priceMin && priceMax) {
-      queryObject.price = { $gte: parseInt(priceMin), $lte: parseInt(priceMax) };
+      queryObject.price = {
+        $gte: parseInt(priceMin),
+        $lte: parseInt(priceMax),
+      };
     } else if (priceMin) {
       queryObject.price = { $gte: parseInt(priceMin) };
     } else if (priceMax) {
@@ -176,8 +195,8 @@ const searchTrips = async (req, res) => {
 
     return res.status(200).json({ success: true, trips });
   } catch (error) {
-    console.error('Error searching trips:', error);
-    res.status(500).json({ success: false, message: 'Internal server error' });
+    console.error("Error searching trips:", error);
+    res.status(500).json({ success: false, message: "Internal server error" });
   }
 };
 
@@ -187,5 +206,5 @@ module.exports = {
   deleteTrip,
   updateTrip,
   getUpcommingTrip,
-  searchTrips
+  searchTrips,
 };

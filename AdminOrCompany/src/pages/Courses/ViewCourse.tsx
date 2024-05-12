@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   useDeleteCourseMutation,
   useGetAllCoursesQuery,
@@ -12,6 +12,7 @@ import { baseUrl } from "@/app/api/apiSlice";
 import CookieHelper from "@/helpers/CookieHelper";
 
 export default function ViewCourse() {
+  const navigate = useNavigate();
   const { data: upcommingTrips } = useGetAllCoursesQuery(null);
   console.log("upcommingTrips", upcommingTrips);
   const [deleteCourse, { isLoading: isCourseDelete }] =
@@ -105,12 +106,15 @@ export default function ViewCourse() {
                 </p>
               </div>
               <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5 gap-2">
-                <Link
-                  to={`/course-edit/${trip._id}`}
+                <button
+                  // to={`/course-edit/${trip._id}`}
+                  onClick={() =>
+                    navigate(`/course-edit/${trip._id}`, { state: trip })
+                  }
                   className="h-10 w-10  bg-meta-5 text-white flex justify-center items-center"
                 >
                   <FaPen />
-                </Link>
+                </button>
                 {/* <Link
                   to={`/course-content/${trip._id}`}
                   className="h-10 w-10 text-2xl  bg-meta-5 text-white flex justify-center items-center"

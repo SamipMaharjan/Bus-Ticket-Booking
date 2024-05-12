@@ -6,6 +6,8 @@ import Loader from "../../common/Loader";
 import toast, { Toaster } from "react-hot-toast";
 import { baseUrl } from "@/app/api/apiSlice";
 import CookieHelper from "@/helpers/CookieHelper";
+import { GlobalContext } from "@/Context/GlobalContext";
+import { useContext } from "react";
 
 // import { useCreateCourseMutation } from "@/app/courses/courseApiSlice";
 
@@ -19,6 +21,8 @@ const CreateCourse = () => {
     formState: { errors },
   } = useForm<any>();
 
+  const { profileData } = useContext(GlobalContext);
+
   const [postCourse, { isLoading: isCourseSubmit }] = useCreateCourseMutation();
 
   function courseSubmit(data: any) {
@@ -31,7 +35,11 @@ const CreateCourse = () => {
     //     });
     //   })
     //   .catch((err) => toast.error(`Error: ${err.data.error}`));
-    data = { ...data, price: parseInt(data.price) };
+    data = {
+      ...data,
+      price: parseInt(data.price),
+      companyId: profileData?._id,
+    };
     console.log("JSON.stringify(data)", JSON.stringify(data));
     fetch(`${baseUrl}/upcommingTrip`, {
       method: "POST",
@@ -40,7 +48,13 @@ const CreateCourse = () => {
         Authorization: `Bearer ${CookieHelper.getCookie("token")}`,
         "Content-Type": "application/json",
       },
-    });
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success)
+          toast.success(data.message || "Successsfully created Bus");
+      })
+      .catch((err) => toast.error("Something went wrong"));
     // console.log("data", data);
   }
 
@@ -54,7 +68,7 @@ const CreateCourse = () => {
         <div className="flex flex-col">
           {/* <!-- Input Fields --> */}
           <div className="rounded-sm flex flex-col gap-3 p-6.5 border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
-            <div className="flex flex-col gap-5.5">
+            {/* <div className="flex flex-col gap-5.5">
               <div>
                 <label className="mb-3 block text-black dark:text-white">
                   Driver ID:
@@ -69,7 +83,7 @@ const CreateCourse = () => {
                   {errors?.driverId?.message}
                 </span>
               </div>
-            </div>
+            </div> */}
             <div className="flex flex-col gap-5.5">
               <div>
                 <label className="mb-3 block text-black dark:text-white">

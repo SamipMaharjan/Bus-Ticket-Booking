@@ -1,4 +1,5 @@
 import CreateBus from "@/pages/Bus/CreateBus";
+import EditBus from "@/pages/Bus/EditBus";
 import ViewBus from "@/pages/Bus/ViewBus";
 import CreateCompany from "@/pages/Company/CreateCompany";
 import ViewCompany from "@/pages/Company/ViewCompany";
@@ -54,6 +55,11 @@ const coreRoutes = [
     path: "/bus/view",
     title: "View Bus",
     component: ViewBus,
+  },
+  {
+    path: "/bus/edit/:id",
+    title: "View Bus",
+    component: EditBus,
   },
 ];
 
