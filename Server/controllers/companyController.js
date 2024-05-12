@@ -156,7 +156,7 @@ const addUpcommingTrip = async (req, res) => {
 
 const handleGetOwnUpcommingTrip = async (req, res) => {
   try {
-    const companyId = req.body.id;
+    const companyId = req.params.id;
     const result = await UpcommingTrips.find({ companyId: companyId }).exec();
     // .distinct("buses",{ _id: companyId });
     console.log(result);

@@ -18,12 +18,14 @@ router
   .get(handleGetAllCompanies)
   .delete(deleteCompany);
 
-router.route("/bus").get(handleGetOwnBus).post(addBus);
+router.route("/bus").post(addBus);
+router.route("/bus/:id").get(handleGetOwnBus);
 
 router
   .route("/upcommingTrips")
-  .get(handleGetOwnUpcommingTrip)
   .post(addUpcommingTrip);
+
+router.route("/upcommingTrips/:id").get(handleGetOwnUpcommingTrip);
 
 router.route("/user").get(getDetails);
 
