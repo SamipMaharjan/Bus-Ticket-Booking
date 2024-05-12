@@ -8,7 +8,7 @@ const upcommingTripsSchema = new Schema({
   },
   driverId: {
     type: String,
-    required: true,
+    required: false,
   },
   pickUpPoint: {
     type: String,
@@ -33,6 +33,10 @@ const upcommingTripsSchema = new Schema({
     type: String,
     required: false,
   },
+  description: {
+    type: String,
+    required: true
+  }
 });
 
 // Create text index

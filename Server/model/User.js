@@ -27,7 +27,7 @@ const userSchema = new Schema({
       },
       driverId: {
         type: String,
-        required: true,
+        required: false,
       },
       pickUpPoint: {
         type: String,
