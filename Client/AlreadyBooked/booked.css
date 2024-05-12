@@ -1,0 +1,272 @@
+body {
+    margin: 0%;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #5257a1f2;
+    color: white;
+    padding: 15px;
+    /* Adjust padding to maintain spacing */
+}
+
+.logo {
+    background-image: url('/Photo/logo.png');
+    height: 100px;
+    width: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.logo1 {
+    position: absolute;
+    top: px;
+    left: 10px;
+    margin-right: 20px;
+    /* Increase the margin to create more space */
+}
+
+.logo1 img {
+    width: 120px;
+    /* Adjust the size of the logo as needed */
+    height: auto;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    margin: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    /* Make the links relative to allow absolute positioning */
+}
+
+.nav-item::before {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: rgb(24, 221, 50);
+    transition: width 0.3s
+}
+
+.nav-item:hover::before {
+    width: 50%;
+}
+
+.footer {
+    background-color: #0a030f;
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    margin-top: 150px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.footer-logo {
+    flex: 0 0 auto;
+    margin-right: 20px;
+}
+
+.footer-logo img {
+    width: 100px;
+    height: auto;
+}
+
+.footer-content {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-link {
+    color: white;
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+    color: rgb(24, 221, 50);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #4CAF50;
+}
+
+.filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 0.5rem;
+    border: 3px solid black;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+td:nth-child(4) {
+    text-align: center;
+}
+
+td:nth-child(5) {
+    text-align: right;
+}
+
+td:nth-child(6) {
+    text-align: center;
+}
+
+td:nth-child(7) {
+    text-align: center;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 20px;
+    padding: 0.25rem 0.5rem;
+    text-transform: capitalize;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #3e8e41;
+}
+
+.strikethrough {
+    text-decoration: line-through;
+}
+
+.container2 {
+    background-image: url('/Photo/background.jpg');
+    /* Add your image path here */
+    background-size: 100%;
+    /* Set background size to match container dimensions */
+    background-repeat: no-repeat;
+    /* Prevent background from repeating */
+    background-position: center;
+    /* Center the background image */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding-bottom: 60px;
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: black;
+}
+
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.input-field {
+    flex: 1;
+}
+
+.input-field label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-field input[type="text"],
+.input-field input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.button {
+    background-color: #007bff;
+    color: #fff;
+    border: black;
+    border-radius: 100px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+.button:hover {
+    background-color: #04AA6D;
+    /* Green */
+    color: white;
+}
+
+.option {
+    margin-right: -850px;
+}
+
+.profile {
+    background-image: url('/Photo/profile.png');
+    height: 50px;
+    width: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    margin-right: -30px;
+}
