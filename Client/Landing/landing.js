@@ -35,14 +35,13 @@ function displayAuthBtnsOrProfile() {
 }
 // Your deleteAllCookies function definition
 const deleteAllCookies = () => {
-    var cookies = document.cookie.split(";");
-    cookies.forEach(cookie => {
-        var cookieName = cookie.split("=")[0].trim();
-        document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    });
-}
-
-// Event listener for the logout button
+        var cookies = document.cookie.split(";");
+        cookies.forEach(cookie => {
+            var cookieName = cookie.split("=")[0].trim();
+            document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        });
+    }
+    // Event listener for the logout button
 document.getElementById("logoutButton").addEventListener("click", function() {
     // Call the deleteAllCookies function when the button is clicked
     deleteAllCookies();

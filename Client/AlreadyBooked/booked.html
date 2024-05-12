@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Header with Logos and Profile</title>
-    <link rel="stylesheet" href="searchbus.css">
-    <script src="./searchBus.js" defer></script>
+    <link rel="stylesheet" href="booked.css">
 </head>
 
 <body>
@@ -16,41 +15,13 @@
         <a href="/Landing/Landing.html" class="nav-item">Home</a>
         <a href="/SearchBus/searchbus.html" class="nav-item">Booking-Buses</a>
         <a href="/contact/contact.html" class="nav-item">Contacts</a>
-        <div class="profile">
-            <a href="/ProfilePage/index.html"></a>
-        </div>
+        <div class="profile"></div>
     </div>
-    <div class="container2">
-        <h1>Reservation</h1>
-        <form id="reservation-form">
-            <div class="input-group">
-                <div class="input-field">
-                    <label for="from">From</label>
-                    <input type="text" id="from" placeholder="Enter Starting Location">
-                </div>
-                <div class="input-field">
-                    <label for="to">To</label>
-                    <input type="text" id="to" placeholder="Enter Ending Location">
-                </div>
-                <div class="input-field">
-                    <label for="date">Date</label>
-                    <input type="date" id="date">
-                </div>
-                <button type="submit">Search</button>
-            </div>
-        </form>
-    </div>
+
     <div class="container">
-        <h1>Bus Tickets</h1>
+        <h1>History</h1>
         <div class="filters">
-            <select class="option">
-                <option value="departure">Departure</option>
-                <option value="duration">Duration</option>
-                <option value="arrival">Arrival</option>
-                <option value="ratings">Ratings</option>
-                <option value="fare">Fare</option>
-            </select>
-            <button>Filter</button>
+
         </div>
         <table id="upcommingTripsTable">
             <thead>
@@ -58,40 +29,29 @@
                     <th>Departure Time</th>
                     <th>Destination</th>
                     <th>Pick-up Point</th>
-
                     <th>Fare (NRS)</th>
-
-                    <th> </th>
                 </tr>
             </thead>
             <tbody>
-                <!-- <tr>
+                <tr>
                     <td>15:00</td>
                     <td>35h 00m</td>
                     <td>02:00</td>
-                    <td>★3.0</td>
                     <td>NRS 3500</td>
-                    <td>20 Seats available</td>
-                    <td><button> Book </button></td>
                 </tr>
                 <tr>
                     <td>16:00</td>
                     <td>31h 30m</td>
                     <td>23:30</td>
-                    <td>★3.2</td>
                     <td>NRS 3000</td>
-                    <td>38 Seats available</td>
-                    <td><button>Book</button></td>
                 </tr>
                 <tr>
                     <td>16:15</td>
                     <td>30h 15m</td>
                     <td>22:30</td>
-                    <td>★1.3</td>
                     <td>NRS 3000<span class="strikethrough">2700</span></td>
-                    <td>10 seats available</td>
-                    <td><button>Book</button></td>
-                </tr> -->
+
+                </tr>
             </tbody>
         </table>
     </div>
