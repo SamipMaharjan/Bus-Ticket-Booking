@@ -111,7 +111,7 @@ const addBus = async (req, res) => {
 
 const handleGetOwnBus = async (req, res) => {
   try {
-    const companyId = req.params.id;
+    const companyId = req.body.id;
     const result = await Company
     .findById({ _id: companyId });
     // .distinct("buses",{ _id: companyId });

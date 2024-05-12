@@ -1,5 +1,7 @@
 // const Admin_email = process.env.ADMIN_EMAIL
 // const Admin_pwd = process.env.ADMIN_PWD
+const UpcommingTrips = require('../model/UpcommingTrips');
+const BusModel = require('../model/Bus');
 
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -50,5 +52,20 @@ const adminLogin = async (req, res) => {
 //   }
 // };
 
-module.exports = { adminLogin };
+const getAllData = async (req, res) => {
+  try{
+    // Count the number of trips
+    const totalTrips = await UpcommingTrips.countDocuments();
+
+    // Count the number of buses
+    const totalBuses = await BusModel.countDocuments();
+
+    // Return the stats in the response
+    res.json({ success: true, totalTrips, totalBuses });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: 'Internal server error' });
+  }
+}
+module.exports = { adminLogin, getAllData };
 // adminDeleteUser
