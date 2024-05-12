@@ -416,17 +416,17 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                             <ul className="mt-4 mb-5.5 flex flex-col gap-2.5 pl-6">
                               <li>
                                 <NavLink
-                                  to="/create-course"
+                                  to="/superadmin/users/view"
                                   className={({ isActive }) =>
                                     "group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white " +
                                     (isActive && "!text-white")
                                   }
                                 >
-                                  Create Upcomming Trips
+                                  View All Users
                                 </NavLink>
                               </li>
 
-                              <li>
+                              {/* <li>
                                 <NavLink
                                   to="/course-view"
                                   className={({ isActive }) =>
@@ -436,7 +436,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                                 >
                                   View Upcomming Trips
                                 </NavLink>
-                              </li>
+                              </li> */}
                             </ul>
                           </div>
                           {/* <!-- Dropdown Menu End --> */}
@@ -553,7 +553,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   </SidebarLinkGroup>
                   <SidebarLinkGroup
                     activeCondition={
-                      pathname === "/forms" || pathname.includes("forms")
+                      pathname === "/course" || pathname.includes("course")
                     }
                   >
                     {(handleClick, open) => {
@@ -562,8 +562,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           <NavLink
                             to="#"
                             className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                              (pathname === "/forms" ||
-                                pathname.includes("forms")) &&
+                              (pathname === "/course" ||
+                                pathname.includes("course")) &&
                               "bg-graydark dark:bg-meta-4"
                             }`}
                             onClick={(e) => {
@@ -630,7 +630,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                             <ul className="mt-4 mb-5.5 flex flex-col gap-2.5 pl-6">
                               <li>
                                 <NavLink
-                                  to="/create-course"
+                                  to="/superadmin/create-course"
                                   className={({ isActive }) =>
                                     "group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white " +
                                     (isActive && "!text-white")
@@ -642,7 +642,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 
                               <li>
                                 <NavLink
-                                  to="/course-view"
+                                  to="/superadmin/course-view"
                                   className={({ isActive }) =>
                                     "group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white " +
                                     (isActive && "!text-white")

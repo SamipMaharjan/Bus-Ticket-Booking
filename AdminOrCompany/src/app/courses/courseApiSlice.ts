@@ -96,6 +96,21 @@ export const courseApiSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ["Courses"],
     }),
+    getAllUsers: builder.query<any, null>({
+      query: () => ({
+        url: `/users`,
+        method: "GET",
+      }),
+      providesTags: ["users"],
+    }),
+    deleteUsers: builder.mutation<any, { busId: string }>({
+      query: (data) => ({
+        url: `/users`,
+        body: { id: data.busId },
+        method: "DELETE",
+      }),
+      invalidatesTags: ["users"],
+    }),
   }),
 });
 export const {
@@ -111,4 +126,6 @@ export const {
   useDeleteBusMutation,
   useDeleteCompanyMutation,
   useGetAllCompanyQuery,
+  useGetAllUsersQuery,
+  useDeleteUsersMutation,
 } = courseApiSlice;

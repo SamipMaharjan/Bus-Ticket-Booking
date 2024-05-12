@@ -24,7 +24,7 @@ export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: baseQuery,
   endpoints: (builder: any) => ({}),
-  tagTypes: ["Courses", "Teachers", "Students", "company", "bus"],
+  tagTypes: ["Courses", "Teachers", "Students", "company", "bus", "users"],
 });
 
 export const baseUrl = "http://localhost:3501";

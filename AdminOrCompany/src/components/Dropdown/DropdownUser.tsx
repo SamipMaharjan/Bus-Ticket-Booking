@@ -15,15 +15,16 @@ const DropdownUser = () => {
   console.log("setProfileData", setProfileData);
 
   useEffect(() => {
-    fetch(`${baseUrl}/company/user`, {
-      method: "GET",
-      headers: { Authorization: `Bearer ${CookieHelper.getCookie("token")}` },
-    })
-      .then((res) => res.json())
-      .then((data: any) => {
-        console.log("data", data);
-        setProfileData(data?.success);
-      });
+    if (CookieHelper.getCookie("token"))
+      fetch(`${baseUrl}/company/user`, {
+        method: "GET",
+        headers: { Authorization: `Bearer ${CookieHelper.getCookie("token")}` },
+      })
+        .then((res) => res.json())
+        .then((data: any) => {
+          console.log("data", data);
+          setProfileData(data?.success);
+        });
   }, []);
   // const userDetail
 
@@ -66,7 +67,7 @@ const DropdownUser = () => {
       >
         <span className="hidden text-right lg:block">
           <span className="block text-sm font-medium text-black dark:text-white">
-            {profileData?.name || "username NA"}
+            {profileData ? profileData?.name || "username NA" : "Admin"}
           </span>
           {/* <span className="block text-xs">UX Designer</span> */}
         </span>
