@@ -234,7 +234,8 @@ h1 {
 }
 
 .input-field input[type="text"],
-.input-field input[type="date"] {
+.input-field input[type="date"], 
+.input-field input[type="number"] {
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
