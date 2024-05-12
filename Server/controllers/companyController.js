@@ -7,13 +7,16 @@ require("dotenv").config();
 
 const companyLogin = async (req, res) => {
   const { email, password } = req.body;
+  console.log("req", req);
+  console.log("password", password);
+
   if (!email || !password)
-  return res.status(400).json({ message: "Email or password missing" });
+    return res.status(400).json({ message: "Email or password missing" });
   // console.log(User, email, password, "========");
   const foundUser = await Company.findOne({ email: email }).exec();
   // console.log(foundUser);
   if (!foundUser) {
-    console.log("401:", email, "User does not exist");
+    // console.log("401:", email, "User does not exist");
     return res
       .status(401)
       .json({ error: "Unauthorized: Company does not exist." });
@@ -24,18 +27,17 @@ const companyLogin = async (req, res) => {
   if (match) {
     // const roles = Object.values(foundUser.roles);
 
-    const Roles = {"Admin": 5150};
+    const Roles = { Admin: 5150 };
     // create and send JWT
     // console.log("asdf", process.env.ACCESS_TOKEN_SECRET, foundUser.username);
     // console.log(" secret", process.env.ACCESS_TOKEN_SECRET)
     const accessToken = jwt.sign(
       {
-        'UserInfo': 
-          { 
-            'username': foundUser.name, 
-            'roles': Roles, 
-            'email': email
-          }
+        UserInfo: {
+          username: foundUser.name,
+          roles: Roles,
+          email: email,
+        },
       },
       process.env.ACCESS_TOKEN_SECRET,
       { expiresIn: "5d" }
@@ -55,10 +57,10 @@ const companyLogin = async (req, res) => {
     //   sameSite: "None",
     //   secure: true,
     // });
-    res.status(200).json({success: true, token: accessToken });
+    res.status(200).json({ success: true, token: accessToken });
   } else {
     // console.log("lastres");
-    res.sendStatus({ success: false, message: 401} );
+    res.sendStatus({ success: false, message: 401 });
   }
 };
 
@@ -75,10 +77,10 @@ const handleGetAllCompanies = async (req, res) => {
 
 const deleteCompany = async (req, res) => {
   // console.log(req.body.id);
-  try{
+  try {
     const companyId = req.body.id;
     const result = await Company.findOneAndDelete({ _id: companyId });
-    if (result) {;
+    if (result) {
       return res.status(200).json({
         success: true,
         message: "Company succesfully deleted.",
@@ -86,10 +88,11 @@ const deleteCompany = async (req, res) => {
     }
   } catch (err) {
     console.error(err);
-    return res.status(500).json({ success: false, message: "Internal Server Error"})
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal Server Error" });
   }
 };
-
 
 const addBus = async (req, res) => {
   try {
@@ -112,20 +115,19 @@ const addBus = async (req, res) => {
 const handleGetOwnBus = async (req, res) => {
   try {
     const companyId = req.params.id;
-    const result = await Company
-    .findById({ _id: companyId });
+    const result = await Company.findById({ _id: companyId });
     // .distinct("buses",{ _id: companyId });
     if (result) {
       // If company is found, log company data and send buses as response
-      console.log('Company data:', result);
-      console.log('Buses:', result.buses);
-      
+      console.log("Company data:", result);
+      console.log("Buses:", result.buses);
+
       // Send company.buses as response
       res.status(200).json(result.buses);
     } else {
       // If company is not found, send an error response
-      console.log('Company not found');
-      res.status(404).json({ message: 'Company not found' });
+      console.log("Company not found");
+      res.status(404).json({ message: "Company not found" });
     }
   } catch (err) {
     console.error(err);
@@ -160,15 +162,15 @@ const handleGetOwnUpcommingTrip = async (req, res) => {
     console.log(result);
     if (result) {
       // If company is found, log company data and send buses as response
-      console.log('Company data:', result);
+      console.log("Company data:", result);
       // console.log('Buses:', result.upcomming_trips);
 
       // Send company.buses as response
       res.status(200).json(result);
     } else {
       // If company is not found, send an error response
-      console.log('Upcomming Trips not found');
-      res.status(404).json({ message: 'Upcomming Trips not found' });
+      console.log("Upcomming Trips not found");
+      res.status(404).json({ message: "Upcomming Trips not found" });
     }
   } catch (err) {
     console.error(err);
@@ -192,7 +194,9 @@ const getDetails = async (req, res) => {
       return res.sendStatus(403);
     }
 
-    const foundUser = await Company.findOne({ email: decoded.UserInfo.email }).exec();
+    const foundUser = await Company.findOne({
+      email: decoded.UserInfo.email,
+    }).exec();
     // console.log(foundUser);
     if (!foundUser) {
       console.log("401:", email, "User does not exist");
@@ -200,8 +204,8 @@ const getDetails = async (req, res) => {
         .status(401)
         .json({ error: "Unauthorized: User does not exist." });
     }
-    
-    res.status(200).json({"success": foundUser}); // Attach result to req object
+
+    res.status(200).json({ success: foundUser }); // Attach result to req object
   });
 };
 
@@ -213,17 +217,39 @@ const updateCompany = async (req, res) => {
     const updateObject = { $set: updateData };
 
     // Find the company by ID and update
-    const updatedCompany = await Company.findByIdAndUpdate(companyId, updateObject, { new: true });
+    const updatedCompany = await Company.findByIdAndUpdate(
+      companyId,
+      updateObject,
+      { new: true }
+    );
 
     if (!updatedCompany) {
-      return res.status(404).json({ success: false, message: 'Company not found' });
+      return res
+        .status(404)
+        .json({ success: false, message: "Company not found" });
     }
 
-    return res.status(200).json({ success: true, message: 'Company updated successfully', company: updatedCompany });
+    return res.status(200).json({
+      success: true,
+      message: "Company updated successfully",
+      company: updatedCompany,
+    });
   } catch (error) {
-    console.error('Error updating company:', error);
-    return res.status(500).json({ success: false, message: 'Internal server error' });
+    console.error("Error updating company:", error);
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal server error" });
   }
-}
+};
 
-module.exports = { updateCompany ,getDetails, companyLogin, handleGetAllCompanies, deleteCompany, addBus, handleGetOwnBus, addUpcommingTrip, handleGetOwnUpcommingTrip };
+module.exports = {
+  updateCompany,
+  getDetails,
+  companyLogin,
+  handleGetAllCompanies,
+  deleteCompany,
+  addBus,
+  handleGetOwnBus,
+  addUpcommingTrip,
+  handleGetOwnUpcommingTrip,
+};

@@ -4,16 +4,19 @@ import CoverOne from "@/images/icon/Bus_Yatri.webp";
 import CookieHelper from "@/helpers/CookieHelper";
 import toast from "react-hot-toast";
 import { useGetCurrentUserQuery } from "@/app/users/usersApiSlice";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import {
   Editable,
   EditableInput,
   EditablePreview,
   EditableTextarea,
 } from "@chakra-ui/react";
+import { GlobalContext } from "@/Context/GlobalContext";
 // import userSix from "../images/user/user-06.png";
 
 const Profile = () => {
+  const { profileData } = useContext(GlobalContext);
+
   const [username, setUsername] = useState<any>();
   const { data: currentUser } = useGetCurrentUserQuery(null);
   const profileImgUrl =
@@ -146,7 +149,7 @@ const Profile = () => {
                   toast.success("Something went wrong.");
                 }
               }}
-              value={username || "username unavailable"}
+              value={profileData?.name || "username unavailable"}
               onChange={(e) => setUsername(e)}
             >
               <EditablePreview />
@@ -154,7 +157,7 @@ const Profile = () => {
             </Editable>
             {/* )} */}
             <p className="font-medium">
-              {currentUser?.email || "N/A@gmail.com"}
+              {profileData?.email || "N/A@gmail.com"}
             </p>
           </div>
         </div>
