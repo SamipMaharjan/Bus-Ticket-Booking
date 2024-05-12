@@ -53,16 +53,19 @@ const bookTrip = async (req, res) => {
     const payload = {
       return_url,
       website_url,
-      amount,
+      amount: amount * 100,
       purchase_order_id: crypto.randomBytes(16).toString("hex"),
       purchase_order_name: result.pickUpPoint + "_to_" + result.destination,
     };
 
     const user = await Users.findOne({ email: req.email }).exec();
-    console.log("user", user);
+    if (!user) {
+      return res.status(401).json({ message: "User not found" });
+    }
+    // console.log("user", user);
 
     try {
-      console.log("payload", payload);
+      // console.log("payload", payload);
       const khaltiResponse = await fetch(
         "https://a.khalti.com/api/v2/epayment/initiate/",
         {
@@ -75,16 +78,17 @@ const bookTrip = async (req, res) => {
         }
       );
 
-      if (khaltiResponse.ok) {
-        const resData = await khaltiResponse.json();
-        console.log("khalti response", resData);
+      // if (khaltiResponse.ok) {
+      console.log("khaltiResponse", { ...khaltiResponse });
+      const resData = await khaltiResponse.json();
+      console.log("khalti response", resData);
 
-        user.booked_trips.push(result);
-        const userSaved = await user.save();
-        console.log("usersaved", userSaved);
+      user.booked_trips.push(result);
+      const userSaved = await user.save();
+      console.log("usersaved", userSaved);
 
-        return res.status(200).json(resData);
-      }
+      return res.status(200).json(resData);
+      // }
     } catch (err) {
       console.error("Khalti Payment Err:", err);
       return res.status(500).json({ message: "Internal server error." });
