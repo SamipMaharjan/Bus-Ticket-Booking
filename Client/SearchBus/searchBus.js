@@ -17,9 +17,7 @@ async function getUpcommingTrip() {
         <td>${trip.departureTime}</td>
         <td>${trip.destination}</td>
         <td>${trip.pickUpPoint}</td>
-        <td>★3.0</td>
-        <td>NRS NA</td>
-        <td>20 Seats available</td>
+        <td>${trip.price}</td>
         <td><button class="khaltiBtn"> Book </button></td>
     `;
       tbody.appendChild(tableRow);
