@@ -2,18 +2,21 @@ import { Link, useNavigate } from "react-router-dom";
 import {
   useDeleteCourseMutation,
   useGetAllCoursesQuery,
+  useGetOwnTripsQuery,
 } from "../../app/courses/courseApiSlice";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FaPen } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import toast from "react-hot-toast";
-import { PiBooksFill } from "react-icons/pi";
-import { baseUrl } from "@/app/api/apiSlice";
-import CookieHelper from "@/helpers/CookieHelper";
+
+import { useContext } from "react";
+import { GlobalContext } from "@/Context/GlobalContext";
 
 export default function ViewCourse() {
   const navigate = useNavigate();
-  const { data: upcommingTrips } = useGetAllCoursesQuery(null);
+  const { profileData } = useContext(GlobalContext);
+  const { data: upcommingTrips } = useGetOwnTripsQuery({ id: profileData._id });
+
   console.log("upcommingTrips", upcommingTrips);
   const [deleteCourse, { isLoading: isCourseDelete }] =
     useDeleteCourseMutation();
@@ -46,7 +49,7 @@ export default function ViewCourse() {
 
   return (
     <>
-      <Breadcrumb pageName="View Course" />
+      <Breadcrumb pageName="View Upcomming Trips" />
       <div className="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
         <div className="flex flex-col">
           <div className="grid grid-cols-6 rounded-sm bg-gray-2 dark:bg-meta-4 sm:grid-cols-6">
@@ -86,8 +89,10 @@ export default function ViewCourse() {
               key={trip._id}
               className="grid grid-cols-6 border-b border-stroke dark:border-strokedark sm:grid-cols-6"
             >
-              <div className="flex items-center justify-center p-2.5 xl:p-5">
-                <p className="text-black dark:text-white">{trip._id}</p>
+              <div className="flex items-center justify-start   p-2.5 xl:p-5">
+                <p className="text-black dark:text-white truncate">
+                  {trip._id}
+                </p>
               </div>{" "}
               <div className="flex items-center justify-center p-2.5 xl:p-5">
                 <p className="text-black dark:text-white">{trip.pickUpPoint}</p>

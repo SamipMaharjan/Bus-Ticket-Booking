@@ -56,7 +56,7 @@ const CreateBus = () => {
 
   return (
     <>
-      <Breadcrumb pageName="Create Upcomming-Trips" />
+      <Breadcrumb pageName="Register Bus" />
       <form
         className="grid grid-cols-1 gap-9"
         onSubmit={handleSubmit(courseSubmit)}
@@ -71,7 +71,7 @@ const CreateBus = () => {
                 </label>
                 <input
                   type="text"
-                  placeholder="title"
+                  placeholder="trip ID go to upomming trips to search for it"
                   className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
                   {...register("upcommingTripId", {
                     required: "upcommingTripId requried",

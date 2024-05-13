@@ -8,6 +8,7 @@ import { baseUrl } from "@/app/api/apiSlice";
 import CookieHelper from "@/helpers/CookieHelper";
 import { GlobalContext } from "@/Context/GlobalContext";
 import { useContext } from "react";
+import { Textarea } from "@chakra-ui/react";
 
 // import { useCreateCourseMutation } from "@/app/courses/courseApiSlice";
 
@@ -91,7 +92,7 @@ const CreateCourse = () => {
                 </label>
                 <input
                   type="text"
-                  placeholder="title"
+                  placeholder="Pick up point."
                   className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
                   {...register("pickUpPoint", {
                     required: "pickUpPoint requried",
@@ -109,7 +110,7 @@ const CreateCourse = () => {
                 </label>
                 <input
                   type="text"
-                  placeholder="title"
+                  placeholder="Destination..."
                   className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
                   {...register("destination", {
                     required: "destination requried",
@@ -127,7 +128,7 @@ const CreateCourse = () => {
                 </label>
                 <input
                   type="text"
-                  placeholder="title"
+                  placeholder="Write in format DD/MM/YYYY hh/mm/ss..."
                   className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
                   {...register("departureTime", {
                     required: "departureTime requried",
@@ -144,7 +145,7 @@ const CreateCourse = () => {
               </label>
               <input
                 type="text"
-                // placeholder="Initial price"
+                placeholder="Initial price"
                 className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
                 {...register("price", {
                   pattern: {
@@ -155,6 +156,20 @@ const CreateCourse = () => {
               />
               <span className="text-[#ff0000] text-xs">
                 {errors?.price?.message}
+              </span>
+            </div>
+            <div>
+              <label className="mb-3 block text-black dark:text-white">
+                Description:
+              </label>
+
+              <Textarea
+                minH={"200px"}
+                placeholder="Enter description of your trip ...."
+                {...register("description")}
+              ></Textarea>
+              <span className="text-[#ff0000] text-xs">
+                {errors?.description?.message}
               </span>
             </div>
           </div>

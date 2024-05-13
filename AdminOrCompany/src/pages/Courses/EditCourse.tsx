@@ -9,6 +9,7 @@ import CookieHelper from "@/helpers/CookieHelper";
 import { GlobalContext } from "@/Context/GlobalContext";
 import { useContext, useEffect } from "react";
 import { useLocation, useParams } from "react-router-dom";
+import { Textarea } from "@chakra-ui/react";
 
 // import { useCreateCourseMutation } from "@/app/courses/courseApiSlice";
 
@@ -147,6 +148,20 @@ const CreateCourse = () => {
               <span className="text-[#ff0000] text-xs">
                 {errors?.price?.message}
               </span>
+              <div>
+                <label className="mb-3 block text-black dark:text-white">
+                  Description:
+                </label>
+
+                <Textarea
+                  minH={"200px"}
+                  placeholder="Enter description of your trip ...."
+                  {...register("description")}
+                ></Textarea>
+                <span className="text-[#ff0000] text-xs">
+                  {errors?.description?.message}
+                </span>
+              </div>
             </div>
           </div>
         </div>

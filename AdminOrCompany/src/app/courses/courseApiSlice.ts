@@ -111,6 +111,13 @@ export const courseApiSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ["users"],
     }),
+    getOwnTrips: builder.query<any[], { id: string }>({
+      query: (data) => ({
+        url: "/company/upcommingTrips/" + data.id,
+        method: "GET",
+      }),
+      providesTags: ["Courses"],
+    }),
   }),
 });
 export const {
@@ -128,4 +135,5 @@ export const {
   useGetAllCompanyQuery,
   useGetAllUsersQuery,
   useDeleteUsersMutation,
+  useGetOwnTripsQuery,
 } = courseApiSlice;

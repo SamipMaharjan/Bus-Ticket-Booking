@@ -13,20 +13,20 @@ import {
 } from "@chakra-ui/react";
 import { GlobalContext } from "@/Context/GlobalContext";
 // import userSix from "../images/user/user-06.png";
+import profileImg from "../../../public/profile.png";
 
 const Profile = () => {
-  const { profileData } = useContext(GlobalContext);
-
   const [username, setUsername] = useState<any>();
+  const { profileData } = useContext(GlobalContext);
   const { data: currentUser } = useGetCurrentUserQuery(null);
   const profileImgUrl =
     "http://localhost:5500/api" + currentUser?.profilePicture;
-  console.log("current", profileImgUrl, currentUser);
+  // console.log("current", profileImgUrl, currentUser);
 
   useEffect(() => {
-    console.log("current.fusernsmae", currentUser);
-    setUsername(currentUser?.username);
-  }, [currentUser]);
+    console.log("current.fusernsmae", profileData);
+    setUsername(profileData?.name);
+  }, [profileData]);
 
   const handleImageChange = async (e: any) => {
     try {
@@ -80,7 +80,7 @@ const Profile = () => {
           <div className="z-30 mx-auto  h-30 w-full max-w-30 rounded-full bg-white/20 p-1 backdrop-blur sm:h-44 sm:max-w-44 sm:p-3">
             <div className="relative drop-shadow-2">
               {currentUser?.profilePicture && (
-                <img src={profileImgUrl} alt="profile" />
+                <img src={profileImg} alt="profile" />
               )}
               <label
                 htmlFor="profile"
@@ -128,17 +128,20 @@ const Profile = () => {
               onSubmit={async (value) => {
                 console.log("value", value);
                 const payload = {
-                  username: value,
-                  profilePicture: currentUser?.profilePicture,
+                  name: value,
+                  // profilePicture: currentUser?.profilePicture,
                 };
-                const res2 = await fetch(`${baseUrl}/profile`, {
-                  method: "PATCH",
-                  body: JSON.stringify(payload),
-                  headers: {
-                    Authorization: `Bearer ${CookieHelper.getCookie("token")}`,
-                    "Content-Type": "application/json",
-                  },
-                });
+                const res2 = await fetch(
+                  `${baseUrl}/company/${profileData._id}`,
+                  {
+                    method: "PUT",
+                    body: JSON.stringify(payload),
+                    headers: {
+                      Authorization: `Bearer ${CookieHelper.getCookie("token")}`,
+                      "Content-Type": "application/json",
+                    },
+                  }
+                );
                 if (res2.ok) {
                   const json = await res2.json();
                   console.log("window.location", window.location);
@@ -149,7 +152,7 @@ const Profile = () => {
                   toast.success("Something went wrong.");
                 }
               }}
-              value={profileData?.name || "username unavailable"}
+              value={username || "username unavailable"}
               onChange={(e) => setUsername(e)}
             >
               <EditablePreview />
