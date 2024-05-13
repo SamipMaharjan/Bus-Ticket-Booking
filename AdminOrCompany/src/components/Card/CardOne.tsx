@@ -1,4 +1,15 @@
+import { baseUrl } from "@/app/api/apiSlice";
+import { useEffect, useState } from "react";
+
 const CardOne = () => {
+  const [dash, setDash] = useState<any>();
+
+  useEffect(() => {
+    fetch(`${baseUrl}/admin`)
+      .then((res) => res.json())
+      .then((data) => setDash(data));
+  }, []);
+
   return (
     <div className="rounded-sm border border-stroke bg-white py-6 px-7.5 shadow-default dark:border-strokedark dark:bg-boxdark">
       <div className="flex h-11.5 w-11.5 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4">
@@ -24,12 +35,12 @@ const CardOne = () => {
       <div className="mt-4 flex items-end justify-between">
         <div>
           <h4 className="text-title-md font-bold text-black dark:text-white">
-            Rs.3.456K
+            {dash?.totalTrips}
           </h4>
-          <span className="text-sm font-medium">Total views</span>
+          <span className="text-sm font-medium">Total Trips</span>
         </div>
 
-        <span className="flex items-center gap-1 text-sm font-medium text-meta-3">
+        {/* <span className="flex items-center gap-1 text-sm font-medium text-meta-3">
           0.43%
           <svg
             className="fill-meta-3"
@@ -44,7 +55,7 @@ const CardOne = () => {
               fill=""
             />
           </svg>
-        </span>
+        </span> */}
       </div>
     </div>
   );

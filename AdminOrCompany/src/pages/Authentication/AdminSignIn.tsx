@@ -30,7 +30,7 @@ const SignIn = () => {
         if (res.token) {
           console.log("res.asjkfk");
           setCookie("superToken", res.token, 5);
-          navigate("/");
+          navigate("/superadmin/");
         }
       })
       .catch((err) => {

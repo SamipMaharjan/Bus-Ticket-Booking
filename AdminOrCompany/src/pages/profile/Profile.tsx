@@ -126,15 +126,15 @@ const Profile = () => {
               marginX={"auto"}
               submitOnBlur={true}
               onSubmit={async (value) => {
-                console.log("value", value);
                 const payload = {
                   name: value,
                   // profilePicture: currentUser?.profilePicture,
                 };
+                console.log("payload", payload);
                 const res2 = await fetch(
                   `${baseUrl}/company/${profileData._id}`,
                   {
-                    method: "PUT`",
+                    method: "PUT",
                     body: JSON.stringify(payload),
                     headers: {
                       Authorization: `Bearer ${CookieHelper.getCookie("token")}`,

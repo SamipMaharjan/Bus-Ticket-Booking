@@ -4,6 +4,7 @@ import CardThree from "../../components/Card/CardThree.tsx";
 import CardTwo from "../../components/Card/CardTwo.tsx";
 
 const ECommerce = () => {
+  console.log("ecommerce ");
   return (
     <>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">

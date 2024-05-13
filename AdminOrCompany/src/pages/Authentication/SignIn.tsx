@@ -38,7 +38,7 @@ const SignIn = () => {
         if (resData?.token) {
           console.log("resData.asjkfk");
           setCookie("token", resData.token, 5);
-          navigate("/");
+          navigate("/profile");
         }
       })
       .catch((err) => {

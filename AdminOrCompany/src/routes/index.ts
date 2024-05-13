@@ -5,6 +5,7 @@ import CreateCompany from "@/pages/Company/CreateCompany";
 import ViewCompany from "@/pages/Company/ViewCompany";
 import CreateTripAdmin from "@/pages/Courses/CreateTripAdmin";
 import ViewTripsAdmin from "@/pages/Courses/ViewTripsAdmin";
+import ECommerce from "@/pages/Dashboard/E-Learning";
 import ViewUsersAdmin from "@/pages/Users/ViewUsersAdmin";
 import Profile from "@/pages/profile/Profile";
 import { lazy } from "react";
@@ -68,6 +69,11 @@ const coreRoutes = [
 
 const superAdminRoutes = [
   {
+    path: "/superadmin/",
+    title: "Dahsboard",
+    component: ECommerce,
+  },
+  {
     path: "/superadmin/teachers",
     title: "CreateCourse",
     component: Teachers,
@@ -77,11 +83,11 @@ const superAdminRoutes = [
     title: "CourseMedia",
     component: Students,
   },
-  {
-    path: "/superadmin/course-view",
-    title: "CourseCurriculum",
-    component: CourseCurriculum,
-  },
+  // {
+  //   path: "/superadmin/course-view",
+  //   title: "CourseCurriculum",
+  //   component: CourseCurriculum,
+  // },
   {
     path: "/superadmin/course-edit/:courseId",
     title: "EditCourse",
