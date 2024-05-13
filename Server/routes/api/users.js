@@ -10,7 +10,8 @@ const {
   updateUser,
   viewBookedTrips,
   deleteBookedTrips,
-  updateBookedTrips
+  updateBookedTrips,
+  getUserDetails
 } = require("../../controllers/userController");
 
 router.route("/users").get(handleGetAllUsers).delete(deleteUser);
@@ -25,4 +26,5 @@ router.route('/users/updateTrip/:id').put(verifyJWT, verifyRoles(ROLES_LIST.Pass
   
 router.put('/users/:id', updateUser);
 
+router.route('/users/profile').get(verifyJWT, verifyRoles(ROLES_LIST.Passenger), getUserDetails)
 module.exports = router;
