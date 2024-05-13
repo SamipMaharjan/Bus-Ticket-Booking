@@ -151,7 +151,7 @@ const viewBookedTrips = async (req, res) => {
 
     return res.status(200).json({ success: true, bookedTrips });
   } catch (error) {
-    console.error(err);
+    console.error(error);
     return res
       .status(500)
       .json({ success: false, message: "Internal Server Error" });
@@ -267,6 +267,37 @@ const updateBookedTrips = async (req, res) => {
   }
 };
 
+const getUserDetails = async (req, res) => {
+  const authHeader = req.headers.authorization || req.headers.Authorization;
+  if (!authHeader.startsWith("Bearer ")) {
+    return res
+      .status(401)
+      .json({ message: "Bearer missing in authorization header." });
+  }
+
+  const token = authHeader.split(" ")[1];
+  console.log("TOKEN ",token);
+  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, async (err, decoded) => {
+    if (err) {
+      console.error("\n Error:", err);
+      return res.sendStatus(403);
+    }
+
+    const foundUser = await User.findOne({
+      email: decoded.UserInfo.email,
+    }).exec();
+    // console.log(foundUser);
+    if (!foundUser) {
+      console.log("401:", email, "User does not exist");
+      return res
+        .status(401)
+        .json({ error: "Unauthorized: User does not exist." });
+    }
+
+    res.status(200).json({ success: foundUser }); // Attach result to req object
+  });
+};
+
 module.exports = {
   handleGetAllUsers,
   deleteUser,
@@ -275,4 +306,5 @@ module.exports = {
   viewBookedTrips,
   deleteBookedTrips,
   updateBookedTrips,
+  getUserDetails
 };
