@@ -16,7 +16,7 @@ body {
 }
 
 .logo {
-    background-image: url('/Photo/logo.png');
+    background-image: url('/Photo/Rectangle 1.png');
     height: 100px;
     width: 200px;
     background-size: contain;
@@ -68,7 +68,7 @@ body {
     padding: 10px;
     display: flex;
     align-items: center;
-    margin-top: 150px;
+    margin-top: 250px;
     width: 100%;
     box-sizing: border-box;
 }
@@ -259,14 +259,4 @@ h1 {
 
 .option {
     margin-right: -850px;
-}
-
-.profile {
-    background-image: url('/Photo/profile.png');
-    height: 50px;
-    width: 50px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    border-radius: 50%;
-    margin-right: -30px;
 }

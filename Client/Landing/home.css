@@ -82,19 +82,21 @@ body {
     align-items: center;
     background-color: #5257a1f2;
     color: white;
-    padding: 30px;
+    padding: 15px;
     /* Adjust padding to maintain spacing */
 }
 
 .logo {
-    background-image: url('/Photo/logo.png');
     height: 100px;
     width: 200px;
     background-size: contain;
     background-repeat: no-repeat;
+    border-radius: 100%;
 }
 
 .logo1 {
+    border-radius: 50%;
+    /* Make the image round */
     position: absolute;
     top: px;
     left: 10px;
@@ -180,7 +182,7 @@ body {
 }
 
 .container {
-    background-image: url('/Photo/background.jpg');
+    background-image: url('/Photo/busvideo.gif');
     /* Add your image path here */
     background-size: 100%;
     /* Set background size to match container dimensions */
@@ -194,8 +196,9 @@ body {
     padding-bottom: 60px;
 }
 
-h1 {
+.reservation {
     text-align: center;
+    color: white;
 }
 
 .input-group {
@@ -207,6 +210,7 @@ h1 {
 
 .input-field {
     flex: 1;
+    color: white;
 }
 
 .input-field label {
@@ -234,8 +238,8 @@ h1 {
 }
 
 .button:hover {
-    background-color: #04AA6D;
-    color: white;
+    background-color: white;
+    color: black;
 }
 
 .btn {
@@ -316,7 +320,7 @@ h1 {
 }
 
 .profile {
-    background-image: url('/Photo/profile.png');
+    background-image: url('/Photo/image 1.png');
     height: 50px;
     width: 50px;
     /* background-size: contain; */
@@ -339,7 +343,7 @@ h1 {
 }
 
 .search {
-    background-color: #007bff;
+    background-color: #FFA500;
     color: #fff;
     border: black;
     border-radius: 100px;
@@ -350,6 +354,11 @@ h1 {
 }
 
 .search:hover {
-    background-color: #04AA6D;
-    color: white;
+    background-color: white;
+    color: black;
+}
+
+.top {
+    color: black;
+    text-align: center;
 }

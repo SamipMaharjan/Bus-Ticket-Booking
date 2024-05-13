@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Company Account</title>
     <link rel="stylesheet" href="style.css">
-    <script  src="https://kit.fontawesome.com/8c57c1385b.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/8c57c1385b.js" crossorigin="anonymous"></script>
     <script src="script.js" defer></script>
     <!-- <script type="module" src="../constants.js" defer></script> -->
 </head>
@@ -15,7 +15,7 @@
     <div class="container">
         <img src="/Photo/logo.png" alt="Company Logo" class="logo">
         <div class="form-box" id="formBox">
-        <!--<form id="loginForm" style="display: block;">
+            <!--<form id="loginForm" style="display: block;">
                 <h1>Login</h1>
                 <div class="input-group">
                     <div class="input-field">
@@ -32,12 +32,12 @@
                     </div>
                 </div>
             </form>-->
-            <form id="createBusYatriAccountForm" >
+            <form id="createBusYatriAccountForm">
                 <h1>Create BusYatri Account</h1>
                 <p>For What Purpose Would you like to create an account</p>
                 <div class="btn-field1">
                     <button type="button" id="forMyselfBtn">For Myself</button>
-                    <button type="button" id="forCompanyBtn">For Company</button>
+                    <a href="http://localhost:5174/"> <button type="button" id="forCompanyBtn">For Company</button></a>
                 </div>
             </form>
             <form id="signupForm" style="display: none;">
@@ -45,31 +45,31 @@
                 <div class="input-group">
                     <div class="input-field">
                         <i class="fa-solid fa-bus"></i>
-                        <input name=""   type="text" placeholder="Company Name">
+                        <input name="" type="text" placeholder="Company Name">
                     </div>
                     <div class="input-field">
                         <i class="fa-solid fa-envelope"></i>
-                        <input name=""   type="email" placeholder="Email">
+                        <input name="" type="email" placeholder="Email">
                     </div>
                     <div class="input-field">
                         <i class="fa-solid fa-user"></i>
-                        <input name=""   type="text" placeholder="Username">
+                        <input name="" type="text" placeholder="Username">
                     </div>
                     <div class="input-field">
                         <i class="fa-solid fa-key"></i>
-                        <input name=""   type="password" placeholder="Password">
+                        <input name="" type="password" placeholder="Password">
                     </div>
                     <div class="input-field">
                         <i class="fa-solid fa-lock"></i>
-                        <input name=""   type="password" placeholder=" Confirm password">
+                        <input name="" type="password" placeholder=" Confirm password">
                     </div>
                     <div class="input-field">
                         <i class="fa-solid fa-mobile-screen-button"></i>
-                        <input name=""   type="text" placeholder=" Phone Number">
+                        <input name="" type="text" placeholder=" Phone Number">
                     </div>
                     <div class="input-field">
                         <i class="fa-solid fa-location-dot"></i>
-                        <input name=""   type="text" placeholder="Location">
+                        <input name="" type="text" placeholder="Location">
                     </div>
                     <div class="btn-field">
                         <button type="button" id="alreadyHaveAccountBtn">Already Have Account</button>
@@ -86,15 +86,15 @@
                     </div> -->
                     <div class="input-field">
                         <i class="fa-solid fa-user"></i>
-                        <input name="username"   type="text" placeholder="Username">
+                        <input name="username" type="text" placeholder="Username">
                     </div>
                     <div class="input-field">
                         <i class="fa-solid fa-envelope"></i>
-                        <input name="email"   type="email" placeholder="Email">
+                        <input name="email" type="email" placeholder="Email">
                     </div>
                     <div class="input-field">
                         <i class="fa-solid fa-key"></i>
-                        <input name="password"   type="password" placeholder="Password">
+                        <input name="password" type="password" placeholder="Password">
                     </div>
                     <!-- <div class="input-field">
                         <i class="fa-solid fa-lock"></i>
@@ -123,11 +123,11 @@
                     </div>
                     <div class="btn-field">
                         <!-- <a href="/home/nav.html"> -->
-                            <!-- </a> -->
-                            <button type="submit" id="LOGIN">Login</button>
-                            <button type="button" id="CreateAccount">Create Account</button>
-                        </div>
+                        <!-- </a> -->
+                        <button type="submit" id="LOGIN">Login</button>
+                        <button type="button" id="CreateAccount">Create Account</button>
                     </div>
+                </div>
             </form>
         </div>
     </div>
