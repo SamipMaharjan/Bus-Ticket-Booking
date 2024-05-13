@@ -16,7 +16,7 @@ body {
 }
 
 .logo {
-    background-image: url('/Photo/logo.png');
+    background-image: url('/Photo/Rectangle 1.png');
     height: 100px;
     width: 200px;
     background-size: contain;
@@ -191,7 +191,7 @@ button:hover {
 }
 
 .container2 {
-    background-image: url('/Photo/background.jpg');
+    background-image: url('/Photo/busvideo.gif');
     /* Add your image path here */
     background-size: 100%;
     /* Set background size to match container dimensions */
@@ -213,7 +213,7 @@ button:hover {
 
 h1 {
     text-align: center;
-    color: black;
+    color: white;
 }
 
 .input-group {
@@ -225,6 +225,7 @@ h1 {
 
 .input-field {
     flex: 1;
+    color: white;
 }
 
 .input-field label {
@@ -262,8 +263,7 @@ h1 {
     margin-right: -850px;
 }
 
-.profile {
-    background-image: url('/Photo/profile.png');
+.profileInformation {
     height: 50px;
     width: 50px;
     background-size: contain;
