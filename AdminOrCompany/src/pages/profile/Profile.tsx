@@ -134,7 +134,7 @@ const Profile = () => {
                 const res2 = await fetch(
                   `${baseUrl}/company/${profileData._id}`,
                   {
-                    method: "PUT",
+                    method: "PUT`",
                     body: JSON.stringify(payload),
                     headers: {
                       Authorization: `Bearer ${CookieHelper.getCookie("token")}`,
