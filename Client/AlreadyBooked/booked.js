@@ -18,7 +18,7 @@ async function getBookedTrip() {
     try {
         let id;
         let data;
-        fetch("http://localhost:3501/users/profile", {Authorization: `Bearer ${token}`}).then(res=>res.json()).then(data => {
+        fetch("http://localhost:3501/users/profile", {headers:{Authorization: `Bearer ${token}`}}).then(res=>res.json()).then(data => {
             console.log("PROFILE DATA ",data);
         })
         // console.log(data);
