@@ -276,7 +276,7 @@ const getUserDetails = async (req, res) => {
   }
 
   const token = authHeader.split(" ")[1];
-  console.log("TOKEN ",token);
+  // console.log("TOKEN ",token);
   jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, async (err, decoded) => {
     if (err) {
       console.error("\n Error:", err);
