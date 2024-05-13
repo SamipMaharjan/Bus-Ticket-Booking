@@ -18,7 +18,7 @@ async function getUpcommingTrip() {
         <td>${trip.destination}</td>
         <td>${trip.pickUpPoint}</td>
         <td>${trip.price}</td>
-        <td><button class="khaltiBtn"> Book </button></td>
+        <td><button class="khaltiBtn"> View </button></td>
     `;
             tbody.appendChild(tableRow);
         });
@@ -37,7 +37,7 @@ function khaltiRedirect() {
             // Handle click event here
             console.log("Clicked:", event.target.textContent);
             window.location.href =
-                "https://test-pay.khalti.com/?pidx=9N2t58ByDqV2uphX36XbV7";
+                "http://127.0.0.1:5502/trips-details/detail.html";
 
             // You can perform any actions based on the clicked element
         });

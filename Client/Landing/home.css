@@ -87,11 +87,11 @@ body {
 }
 
 .logo {
+    background-image: url('/Photo/Rectangle 1.png');
     height: 100px;
     width: 200px;
     background-size: contain;
     background-repeat: no-repeat;
-    border-radius: 100%;
 }
 
 .logo1 {
