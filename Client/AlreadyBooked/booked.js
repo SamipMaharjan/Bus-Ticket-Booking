@@ -17,18 +17,18 @@ async function getBookedTrip() {
     const token = getCookie("token");
     try {
         let id;
-        let data;
+        let userpt;
         fetch("http://localhost:3501/users/profile", {headers:{Authorization: `Bearer ${token}`}}).then(res=>res.json()).then(data => {
             console.log("PROFILE DATA ",data);
-        })
         // console.log(data);
-        const res = await fetch("http://localhost:3501/users/bookTrip/"+id);
-        const bookedTrips = await res.json();
-        const bookedTrpisTable = document.querySelector("#bookedTripsTable");
-        const tbody = bookedTrpisTable.querySelector("tbody");
-        console.log("bookedTrips", bookedTrips);
+        // const res = await fetch("http://localhost:3501/users/bookTrip/"+id);
+        // const bookedTrips = await res.json();
+        // const bookedTrpisTable = document.querySelector("#bookedTripsTable");
+        const tbody = document.querySelector("tbody");
+        console.log("bookedTrips", data);
 
-        bookedTrips.forEach((trip, i) => {
+        data.success.booked_trips.forEach((trip, i) => {
+            console.log("vitra ko trip",trip);
             const tableRow = document.createElement("tr");
       
             tableRow.innerHTML = `
@@ -39,6 +39,9 @@ async function getBookedTrip() {
           `;
             tbody.appendChild(tableRow);
           });
+        // })
+    })
+
     } catch (error) {
         console.error(error);
     }
