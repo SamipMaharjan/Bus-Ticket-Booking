@@ -46,8 +46,10 @@ function khaltiRedirect() {
   khaltiBtns.forEach((element) => {
     element.addEventListener("click", (event) => {
       // Handle click event here
-      console.log("Clicked:", event.target.textContent);
-      window.location.href = "http://127.0.0.1:5502/trips-details/detail.html";
+      // console.log("Clicked:", event.target.textContent);
+      window.location.href =
+        "http://127.0.0.1:5502/trips-details/detail.html?tripId=" + element.id;
+      // history.pushState(,"","/trips-details/detail.html");
 
       // You can perform any actions based on the clicked element
     });
