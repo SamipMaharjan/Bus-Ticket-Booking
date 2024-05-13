@@ -29,7 +29,7 @@ async function getUpcommingTrip() {
         <td>${trip.destination}</td>
         <td>${trip.pickUpPoint}</td>
         <td>${trip.price}</td>
-        <td><button id="${trip._id}" class="khaltiBtn"> Book </button></td>
+        <td><button id="${trip._id}" class="khaltiBtn"> View </button></td>
     `;
       tbody.appendChild(tableRow);
     });
@@ -46,24 +46,8 @@ function khaltiRedirect() {
   khaltiBtns.forEach((element) => {
     element.addEventListener("click", (event) => {
       // Handle click event here
-      //   console.log("auth token", getCookie("token"));
-      fetch(`http://localhost:3501/users/bookTrip/${element.id}`, {
-        method: "PUT",
-        body: JSON.stringify({
-          return_url: "http://127.0.0.1:5502/AlreadyBooked/booked.html",
-          website_url: "http://127.0.0.1:5502",
-        }),
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${getCookie("token")}`,
-        },
-      })
-        .then((res) => res.json())
-        .then((resData) => window.open(resData.payment_url))
-        .catch((err) => console.error("Khalti booking err:", err));
-      //   console.log("Clicked:", event.target.textContent);
-      //   window.open();
-      // "https://test-pay.khalti.com/?pidx=9N2t58ByDqV2uphX36XbV7";
+      console.log("Clicked:", event.target.textContent);
+      window.location.href = "http://127.0.0.1:5502/trips-details/detail.html";
 
       // You can perform any actions based on the clicked element
     });
