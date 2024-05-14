@@ -1,5 +1,39 @@
 document.addEventListener("DOMContentLoaded", (e) => {
   getUpcommingTrip();
+  document
+    .querySelector("#searchForm")
+    .addEventListener("submit", async (event) => {
+      event.preventDefault();
+      let data;
+
+      const destination = document.querySelector("#from").value;
+      const pickUpPoint = document.querySelector("#to").value;
+      const minPrice = document.querySelector("#minPrice").value;
+      const maxPrice = document.querySelector("#maxPrice").value;
+      // const formData = new FormData(event.target);
+      const searchParams = new URLSearchParams({
+        destination,
+        pickUpPoint,
+        minPrice,
+        maxPrice,
+      });
+      console.log("searchParams", searchParams.toString());
+
+      try {
+        const response = await fetch(
+          `http://localhost:3501/searchUpcommingTrips?${searchParams}`
+        );
+        console.log("response", response);
+        const data = await response.json();
+        if (data.success) {
+          displayTrips(data.trips);
+        } else {
+          console.error("Search failed:", data.message);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    });
 });
 
 const getCookie = (c_name) => {
@@ -56,38 +90,6 @@ function khaltiRedirect() {
   });
   // window.location.href =
 }
-
-document
-  .getElementById("searchForm")
-  .addEventListener("submit", async (event) => {
-    event.preventDefault();
-    let data;
-
-    const destination = document.getElementById("from").value;
-    const pickUpPoint = document.getElementById("to").value;
-    const minPrice = document.getElementById("minPrice").value;
-    const maxPrice = document.getElementById("maxPrice").value;
-    console.log(destination);
-    // const formData = new FormData(event.target);
-    const searchParams = new URLSearchParams({
-      destination,
-      pickUpPoint,
-      minPrice,
-      maxPrice,
-    });
-
-    try {
-      const response = await fetch(`/searchUpcomingTrips?${searchParams}`);
-      const data = await response.json();
-      if (data.success) {
-        displayTrips(data.trips);
-      } else {
-        console.error("Search failed:", data.message);
-      }
-    } catch (error) {
-      console.error(err);
-    }
-  });
 
 function displayTrips(trips) {
   const resultsContainer = document.getElementById("searchForm");
