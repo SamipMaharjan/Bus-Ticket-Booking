@@ -83,7 +83,20 @@ const bookTrip = async (req, res) => {
       const resData = await khaltiResponse.json();
       console.log("khalti response", resData);
 
-      user.booked_trips.push(result);
+      // Generate a random seat number between 1 to 50
+      const seatNumber = Math.floor(Math.random() * 50) + 1;
+
+      // Create a ticket object with unique ID and seat number
+      const ticket = {
+        id: crypto.randomBytes(8).toString("hex"),
+        seatNumber,
+      };
+
+      // Add the ticket to the user's booked trips
+      user.booked_trips.push({ ...result.toObject(), ticket });
+      // user.booked_trips.push(result);
+
+      // Save the updated user
       const userSaved = await user.save();
       console.log("usersaved", userSaved);
 

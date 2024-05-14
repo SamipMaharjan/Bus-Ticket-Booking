@@ -37,6 +37,9 @@ const upcommingTripsSchema = new Schema({
     type: String,
     required: false,
   },
+  ticket: {
+    type: String
+  }
 });
 
 // Create text index
